@@ -1,0 +1,197 @@
+
+**结构化查询语言(Structured Query Language)，简称SQL**
+
+### SQL数据定义（定义视图待完善）
+
+#### 基本数据类型
+
+对于具体的BDMS，对类型的定义可能略有不同，所以需要查一下
+##### 数值型
+
+```SQL
+int|integer:整数，取决于DBMS实现
+smallint:整数，取值范围比int小
+bigint:整数，取值范围比int大
+numeric(p,s)|decimal(p,s):，p位有效数字，小数点后s位
+float(n):浮点数，精度至少为n位数字
+real：同float，但精度由DBMS决定
+double precision:同float，但精度由DBMS决定，比real高
+```
+
+##### 布尔型
+
+```SQL
+boolean:TRUE or FALSE
+```
+
+##### 字符串型
+
+```SQL
+char(n)|character(n):定长字符串，长度为n
+varchar(n)|character varying(n):变长字符串，最大长度为n
+CLOB|character large object:超长字符串，长度超过varchar(n)的上限
+```
+
+##### 二进制串型
+
+```SQL
+binary(n):定长二进制串，长度为n个字节
+varbinary(n):变长二进制串，长度最大为n个字节
+BLOB|binary large object:超长二进制串，长度超过varbinary(n)上限
+```
+
+##### 日期时间型
+
+```SQL
+date:日期，格式YYYY-MM-DD
+time:时间，格式HH:MM:SS
+time with time zone:时间和时区
+timestamp:日期和时间，YYYY-MD-DD HH:MM:SS
+timestamp with time zone:日期和时间以及时区
+```
+
+##### 时间区间型
+
+```SQL
+interval year to month:时间区间，用年月表示
+interval day to second:时间区间，用日时分秒表示
+```
+
+#### 创建关系模式
+
+**功能**：定义关系模式，包括关系名、属性名、属性类型、主键、外键、完整性约束等
+**语句**：
+###### 创建关系、声明主键
+```SQL
+create table Student( //创建Student关系
+Sno char(6),
+Sname varchar(10),
+Ssex char,
+Sage int,
+Sdept varchar(20),
+primary key (Sno)     //声明主键
+);
+```
+###### 声明外键
+```SQL
+create table SC(
+Sno char(6),
+Cno char(10),
+Grade int,
+primary key (Sno,Cno), //声明主键，有两个属性
+foreign key (Sno) references Student(Sno) //声明外键Sno，
+										  //以Student关系中的Sno属性为参照
+);
+```
+
+###### 声明用户定义完整性约束
+[[关系数据库#约束条件（constraint）]]
+**功能**：
+1. 指定属性值非空：NOT NULL
+2. 规定属性值不重复：UNIQUE
+3. 定义属性的缺省值：DEFAULT
+4. 规定属性值必须满足的表达式条件： CHECK (表达式)
+```SQL
+create table Student( 
+Sno char(6),
+Sname varchar(10) not null,        //姓名非空
+Ssex char check(Ssex in ('M','F')),//性别必须是M或者F
+Sage int check(Sage >= 0),         //年龄必须大于等于0
+Sdept varchar(20), 
+primary key (Sno)     
+);
+```
+#### 修改关系模式
+**功能**：修改关系名、增删改属性，增删约束
+**语句**：ALTER TABLE
+###### 修改关系名
+```SQL
+alter table Student rename to XueSheng;
+//将Student重命名为XueSheng
+```
+
+###### 增加|删除 属性
+```SQL
+alter table Student add Mno char(6);
+//给Student增加一个类型为char(6)的属性Mno
+```
+
+```SQL
+alter table Student drop Mno;
+//将Student中的Mno属性删除
+```
+
+###### 增加|删除 表约束
+```SQL
+alter table Student
+add constraint fk_mno
+foreign key(Mno) references Student(Sno);
+//创建外键约束fk_mon，将属性Mno声明为Student的外键，参照Student的主键Sno
+```
+
+```SQL
+alter table Student drop constraint fk_mno;
+//删除外键约束fk_mno
+```
+
+###### 修改 属性名|属性类型
+```SQL
+alter table Student rename Sno to XueHao;
+//把Student关系中的Sno属性重命名为XueHao
+```
+
+```SQL
+alter table Student alter Sname type varchar(20);
+//把Student关系中的Sno的属性类型改为varchar(20)
+```
+
+###### 设置|取消 用户完整性约束
+
+```SQL
+alter table Student alter Sname set not null;
+//设置Student关系中的Sname设置非空
+
+alter table Student alter Sname drop not null;
+//删除刚添加的非空约束
+```
+
+```SQL
+alter table Student alter Sage set default 18;
+alter table Student alter Sage drop default;
+//增删缺省值
+```
+
+#### 删除关系
+```SQL
+drop table 关系名1，关系名2，……
+```
+**注意，删除关系会将数据一并删除**
+#### 定义视图
+
+待写
+### SQL数据更新
+
+#### 插入数据
+
+
+
+
+
+### SQL数据查询
+
+#### 单关系查询
+
+1.  **投影查询**
+[[关系数据库#投影（projection) Π（pai）]]
+功能：从一个关系中选出指定的列
+```SQL
+select  <属性名列表> from <关系名>
+select DISTINCT <属性名列表> from <关系名>
+select max(<属性名列表>) from <关系名>    //选取该属性里最大的
+```
+不加**DISTINCT**则不会进行**去重**操作
+
+2. **选择查询**
+```SQL
+select * from student where sdept = 'CS' //在student关系里选择sdept为CS的元组
+```
