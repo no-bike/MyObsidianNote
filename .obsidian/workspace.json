@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "Git_LearnNote/Learning.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "Git_LearnNote/Learning.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "Git_LearnNote/Learning.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "Git_LearnNote/Learning.md"
               }
             }
           }
@@ -148,9 +148,10 @@
   },
   "active": "b4eb11d1caf2227e",
   "lastOpenFiles": [
+    "README.md",
+    "Git_LearnNote/Learning.md",
     "未命名.md",
     "Git_LearnNote",
-    "README.md",
     "Database_System/3.SQL.md",
     "Database_System/2.Relational_Database.md",
     "Database_System/1.Outline.md",
