@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#6c63f0",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,7 +65,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -146,7 +147,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "b4eb11d1caf2227e",
+  "active": "3ba2757f89e53986",
   "lastOpenFiles": [
     "README.md",
     "Git_LearnNote/Learning.md",
