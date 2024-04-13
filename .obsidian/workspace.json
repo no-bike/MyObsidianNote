@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#6c63f0",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -65,8 +65,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -131,7 +130,7 @@
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -147,10 +146,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "3ba2757f89e53986",
+  "active": "b4eb11d1caf2227e",
   "lastOpenFiles": [
-    "README.md",
+    "picture/Pasted image 20240413104454.png",
+    "picture/Pasted image 20240410104657.png",
     "Git_LearnNote/Learning.md",
+    "Pasted image 20240413104329.png",
+    "picture/Pasted image 20240413104351.png",
+    "README.md",
     "未命名.md",
     "Git_LearnNote",
     "Database_System/3.SQL.md",
@@ -161,7 +164,6 @@
     "未命名.canvas",
     "picture/Pasted image 20240410111424.png",
     "Pasted image 20240410111250.png",
-    "picture/Pasted image 20240410104657.png",
     "Pasted image 20240410111225.png",
     "picture",
     "Pasted image 20240410101254.png",
