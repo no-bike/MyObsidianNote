@@ -85,3 +85,5 @@ git reflog
 ![[Pasted image 20240413104351.png]]
 ![[Pasted image 20240413104454.png]]
 
+##### 注意
+`git commit` 指令只会把暂存区里的文件提交到版本库里
