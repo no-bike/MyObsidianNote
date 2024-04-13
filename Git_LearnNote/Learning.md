@@ -34,7 +34,10 @@ git init
 ```
 git add learngit.txt
 ```
-2.提交
+add可以将很多文件添加到暂存区，在commit的时候统一提交
+2. 提交
 ```
+git commit -m "Write a learngit.txt"
+```
+-m后面的字符串是对该次提交的说明，最好有意义
 
-```
