@@ -116,6 +116,16 @@ git reset HEAD learngit.txt
 ```
 git restore --staged learngit.txt
 ```
-这个指令会使暂存区中的文件**覆盖**掉工作区的`learngit.txt`文件，不会保留工作区对该文件的任何修改
+这个指令会使暂存区中的文件**覆盖**掉工作区的`learngit.txt`修改，不会保留工作区对该文件的任何修改
+
+
+git 2.44.0 版本
+丢弃工作区更改的命令如下：
+`git restore <file>
+撤销暂存区提交的命令如下：
+`git restore --staged <file>
+上面指令依旧可用
+
+
 
 

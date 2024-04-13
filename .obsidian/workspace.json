@@ -130,7 +130,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -148,9 +148,10 @@
   },
   "active": "b4eb11d1caf2227e",
   "lastOpenFiles": [
+    "Database_System/1.Outline.md",
+    "Git_LearnNote/Learning.md",
     "picture/Pasted image 20240413104454.png",
     "picture/Pasted image 20240410104657.png",
-    "Git_LearnNote/Learning.md",
     "Pasted image 20240413104329.png",
     "picture/Pasted image 20240413104351.png",
     "README.md",
@@ -158,7 +159,6 @@
     "Git_LearnNote",
     "Database_System/3.SQL.md",
     "Database_System/2.Relational_Database.md",
-    "Database_System/1.Outline.md",
     "csapp/Assembler language Introdution.md",
     "MyObsidianNote",
     "未命名.canvas",
