@@ -129,3 +129,22 @@ git 2.44.0 版本
 
 #### 远程仓库
 
+在github创建仓库后会有提示喵~
+比如下方，在本地仓库里连接了远程仓库，并命名为origin
+```
+git add remote origin git@github.com:no-bike/MyObsidianNote
+```
+
+其中，no-bike为github用户名
+
+查看已连接的远程仓库及命名
+```
+git remote -v
+```
+
+删除远程库
+以删除origin为例
+```
+git remote rm origin
+```
+
