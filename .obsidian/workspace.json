@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database_System/4.Storage_Management.md",
+                "file": "Git_LearnNote/Learning basic operation.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Database_System/4.Storage_Management.md",
+                "file": "Git_LearnNote/Learning basic operation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Database_System/4.Storage_Management.md",
+                "file": "Git_LearnNote/Learning basic operation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Database_System/4.Storage_Management.md"
+                "file": "Git_LearnNote/Learning basic operation.md"
               }
             }
           }
@@ -146,8 +146,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "d4fd3723d911d91d",
+  "active": "cc21db5f24c2f9e7",
   "lastOpenFiles": [
+    "Database_System/2.Relational_Database.md",
+    "Database_System/3.SQL.md",
+    "Database_System/4.Storage_Management.md",
+    "Database_System/1.Outline.md",
+    "Git_LearnNote/Learning basic operation.md",
     "picture/Pasted image 20240424113047.png",
     "picture/Pasted image 20240424112518.png",
     "picture/Pasted image 20240424111728.png",
@@ -156,15 +161,9 @@
     "picture/Pasted image 20240424104358.png",
     "picture/Pasted image 20240424104003.png",
     "picture/Pasted image 20240424103735.png",
-    "Database_System/4.Storage_Management.md",
-    "Git_LearnNote/Learning basic operation.md",
-    "Database_System/2.Relational_Database.md",
-    "Database_System/3.SQL.md",
     "csapp/Assembler language Introdution.md",
-    "Database_System/1.Outline.md",
     "picture/Pasted image 20240417104410.png",
     "picture/Pasted image 20240413104454.png",
-    "picture/Pasted image 20240413104351.png",
     "README.md",
     "Git_LearnNote",
     "MyObsidianNote",
