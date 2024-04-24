@@ -130,7 +130,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -148,18 +148,18 @@
   },
   "active": "cc21db5f24c2f9e7",
   "lastOpenFiles": [
-    "Database_System/3.SQL.md",
     "Database_System/2.Relational_Database.md",
+    "Database_System/3.SQL.md",
     "Database_System/4.Storage_Management.md",
-    "Git_LearnNote/Learning basic operation.md",
+    "csapp/Assembler language Introdution.md",
     "Database_System/1.Outline.md",
+    "Git_LearnNote/Learning basic operation.md",
     "picture/Pasted image 20240417104410.png",
     "picture/Pasted image 20240413104454.png",
     "picture/Pasted image 20240413104351.png",
     "picture/Pasted image 20240410111424.png",
     "picture/Pasted image 20240410104657.png",
     "README.md",
-    "csapp/Assembler language Introdution.md",
     "Pasted image 20240413104329.png",
     "Git_LearnNote",
     "MyObsidianNote",
