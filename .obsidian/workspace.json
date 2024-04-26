@@ -11,11 +11,9 @@
             "id": "cc21db5f24c2f9e7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md",
-                "mode": "source",
-                "source": false
+                "file": "Rucbase_lab/docs/框架图.pdf"
               }
             }
           }
@@ -85,7 +83,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md",
+                "file": "Rucbase_lab/docs/框架图.pdf",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +100,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md",
+                "file": "Rucbase_lab/docs/框架图.pdf",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +123,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md"
+                "file": "Rucbase_lab/docs/框架图.pdf"
               }
             }
           }
@@ -148,8 +146,9 @@
   },
   "active": "cc21db5f24c2f9e7",
   "lastOpenFiles": [
-    "README.md",
+    "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
     "Git_LearnNote/Learning basic operation.md",
+    "README.md",
     "Database_System/2.Relational_Database.md",
     "Database_System/3.SQL.md",
     "Database_System/4.Storage_Management.md",
