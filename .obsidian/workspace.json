@@ -11,9 +11,11 @@
             "id": "cc21db5f24c2f9e7",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Rucbase_lab/docs/框架图.pdf"
+                "file": "Database_System/4.Storage_Management.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -83,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Rucbase_lab/docs/框架图.pdf",
+                "file": "Database_System/4.Storage_Management.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -100,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Rucbase_lab/docs/框架图.pdf",
+                "file": "Database_System/4.Storage_Management.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -123,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Rucbase_lab/docs/框架图.pdf"
+                "file": "Database_System/4.Storage_Management.md"
               }
             }
           }
@@ -146,16 +148,23 @@
   },
   "active": "cc21db5f24c2f9e7",
   "lastOpenFiles": [
+    "Database_System/3.SQL.md",
+    "Database_System/4.Storage_Management.md",
+    "Database_System/2.Relational_Database.md",
+    "Database_System/1.Outline.md",
     "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
     "Rucbase_lab/docs/Rucbase项目结构.pdf",
+    "Rucbase_lab/docs/Rucbase使用文档.md",
+    "Rucbase_lab/docs/Rucbase开发文档.md",
+    "Rucbase_lab/docs/Rucbase环境配置文档.md",
+    "Rucbase_lab/docs/Rucbase-Lab4[并发控制实验文档].md",
+    "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
+    "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
+    "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "Rucbase_lab/docs/框架图.pdf",
     "Git_LearnNote/Learning basic operation.md",
     "README.md",
-    "Database_System/2.Relational_Database.md",
-    "Database_System/3.SQL.md",
-    "Database_System/4.Storage_Management.md",
-    "Database_System/1.Outline.md",
     "picture/Pasted image 20240424113047.png",
     "picture/Pasted image 20240424112518.png",
     "picture/Pasted image 20240424111728.png",
