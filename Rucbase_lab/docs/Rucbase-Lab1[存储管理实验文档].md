@@ -389,12 +389,12 @@ public:
 
 测试文件及测试点如下：
 
-| 任务点                 | 测试文件                                 | 分值 |
-| ---------------------- | ---------------------------------------- | ---- |
-| 任务1.1 磁盘存储管理器 | src/test/storage/disk_manager_test.cpp        | 10   |
-| 任务1.2 缓冲池替换策略 | src/test/storage/lru_replacer_test.cpp       | 20   |
-| 任务1.3 缓冲池管理器   | src/test/storage/buffer_pool_manager_test.cpp | 40   |
-| 任务2 记录管理器       | src/test/storage/record_manager_test.cpp                  | 30   |
+| 任务点           | 测试文件                                          | 分值  |
+| ------------- | --------------------------------------------- | --- |
+| 任务1.1 磁盘存储管理器 | src/test/storage/disk_manager_test.cpp        | 10  |
+| 任务1.2 缓冲池替换策略 | src/test/storage/lru_replacer_test.cpp        | 20  |
+| 任务1.3 缓冲池管理器  | src/test/storage/buffer_pool_manager_test.cpp | 40  |
+| 任务2 记录管理器     | src/test/storage/record_manager_test.cpp      | 30  |
 
 编译生成可执行文件进行测试：
 
