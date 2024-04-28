@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "d12474c35ff2a4b6",
+        "id": "757cc025ba523e4f",
         "type": "tabs",
         "children": [
           {
-            "id": "cc21db5f24c2f9e7",
+            "id": "15fca0f71b0b8d9a",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Git_LearnNote/Learning basic operation.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Git_LearnNote/Learning basic operation.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -146,8 +138,9 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "cc21db5f24c2f9e7",
+  "active": "15fca0f71b0b8d9a",
   "lastOpenFiles": [
+    "Git_LearnNote/Learning basic operation.md",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
@@ -164,7 +157,6 @@
     "Rucbase_lab/docs/Rucbase开发文档.md",
     "Rucbase_lab/docs/Rucbase环境配置文档.md",
     "Rucbase_lab/docs/框架图.pdf",
-    "Git_LearnNote/Learning basic operation.md",
     "README.md",
     "picture/Pasted image 20240424113047.png",
     "picture/Pasted image 20240424112518.png",
