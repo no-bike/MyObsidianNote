@@ -8,7 +8,7 @@
 
    ```sql
    SQL
-   
+   select * from Student where Sname like '王%' order by Sdept,Sno;
    ```
 
 2. 用关系代数和SQL查询选修了'1002'号课程的学生的学号和姓名。（20分）
@@ -45,12 +45,12 @@
 6. `SELECT * FROM Student AS S1 NATURAL JOIN Student AS S2`的结果是什么？（10分）
 
    ```
-   
+   Student原表，因为是自然内连接
    ```
 
 7. `SELECT Sno FROM Student WHERE NOT EXISTS (SELECT * FROM SC WHERE SC.Sno = Student.Sno)`的结果是什么？（10分）
 
    ```
-   
+   查询没选课的学生
    ```
    
