@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database_System/homework/quiz1.md",
+                "file": "Git_LearnNote/Learning basic operation.md",
                 "mode": "source",
                 "source": false
               }
@@ -109,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Database_System/homework/quiz1.md",
+                "file": "Git_LearnNote/Learning basic operation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Database_System/homework/quiz1.md",
+                "file": "Git_LearnNote/Learning basic operation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Database_System/homework/quiz1.md"
+                "file": "Git_LearnNote/Learning basic operation.md"
               }
             }
           }
@@ -172,9 +172,9 @@
   },
   "active": "15fca0f71b0b8d9a",
   "lastOpenFiles": [
+    "Database_System/homework/quiz1.md",
     "Database_System/2.Relational_Database.md",
     "Database_System/3.SQL.md",
-    "Database_System/homework/quiz1.md",
     "Database_System/1.Outline.md",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
     "Rucbase_lab/docs/框架图.pdf",
