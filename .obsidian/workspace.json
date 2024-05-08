@@ -13,31 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "e3bfa6daa58c6603",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database_System/3.SQL.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "2425c03ec81b492e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Database_System/2.Relational_Database.md",
+                "file": "Database_System/5.Index Structure.md",
                 "mode": "source",
                 "source": false
               }
@@ -109,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md",
+                "file": "Database_System/5.Index Structure.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md",
+                "file": "Database_System/5.Index Structure.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -149,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Git_LearnNote/Learning basic operation.md"
+                "file": "Database_System/5.Index Structure.md"
               }
             }
           }
@@ -172,19 +148,20 @@
   },
   "active": "15fca0f71b0b8d9a",
   "lastOpenFiles": [
+    "Database_System/3.SQL.md",
+    "Database_System/5.Index Structure.md",
+    "Database_System/4.Storage_Management.md",
+    "Git_LearnNote/Learning basic operation.md",
     "Database_System/homework/quiz1.md",
     "Database_System/2.Relational_Database.md",
-    "Database_System/3.SQL.md",
     "Database_System/1.Outline.md",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
     "Rucbase_lab/docs/框架图.pdf",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
-    "Git_LearnNote/Learning basic operation.md",
     "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab4[并发控制实验文档].md",
     "Rucbase_lab/docs/Rucbase使用文档.md",
-    "Database_System/4.Storage_Management.md",
     "picture/Pasted image 20240426164910.png",
     "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
     "Rucbase_lab/docs/Rucbase项目结构.pdf",
