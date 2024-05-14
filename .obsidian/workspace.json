@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database_System/2.Relational_Database.md",
+                "file": "Database_System/5.Index Structure.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Database_System/2.Relational_Database.md",
+                "file": "Database_System/5.Index Structure.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Database_System/2.Relational_Database.md",
+                "file": "Database_System/5.Index Structure.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Database_System/2.Relational_Database.md"
+                "file": "Database_System/5.Index Structure.md"
               }
             }
           }
@@ -148,14 +148,14 @@
   },
   "active": "15fca0f71b0b8d9a",
   "lastOpenFiles": [
+    "Git_LearnNote/Learning basic operation.md",
+    "Database_System/2.Relational_Database.md",
     "Database_System/4.Storage_Management.md",
     "Database_System/5.Index Structure.md",
     "Database_System/1.Outline.md",
-    "Database_System/2.Relational_Database.md",
     "Database_System/3.SQL.md",
     "picture/Pasted image 20240508110243.png",
     "picture/Pasted image 20240508102543.png",
-    "Git_LearnNote/Learning basic operation.md",
     "Database_System/homework/quiz1.md",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
     "Rucbase_lab/docs/框架图.pdf",
