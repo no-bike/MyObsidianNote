@@ -28,9 +28,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "66fdab78e4572a8f",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.6.5"
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -157,20 +167,20 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "ed86df0800d3ae1b",
+  "active": "66fdab78e4572a8f",
   "lastOpenFiles": [
+    "Database_System/4.Storage_Management.md",
+    "Database_System/3.SQL.md",
+    "Database_System/2.Relational_Database.md",
+    "Database_System/1.Outline.md",
+    "Database_System/5.Index Structure.md",
     "Database_System/6.Query Execution.md",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
     "Rucbase_lab/docs/Rucbase项目结构.pdf",
     "Rucbase_lab/docs/Rucbase使用文档.md",
     "Rucbase_lab/docs/Rucbase开发文档.md",
     "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
-    "Database_System/5.Index Structure.md",
     "Git_LearnNote/Learning basic operation.md",
-    "Database_System/2.Relational_Database.md",
-    "Database_System/4.Storage_Management.md",
-    "Database_System/1.Outline.md",
-    "Database_System/3.SQL.md",
     "picture/Pasted image 20240508110243.png",
     "picture/Pasted image 20240508102543.png",
     "Database_System/homework/quiz1.md",
