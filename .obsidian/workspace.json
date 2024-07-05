@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lab-report (2).md",
+                "file": "lab-report.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "lab-report (2).md",
+                "file": "lab-report.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "lab-report (2).md",
+                "file": "lab-report.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "lab-report (2).md"
+                "file": "lab-report.md"
               }
             }
           }
@@ -161,20 +161,22 @@
   },
   "active": "66fdab78e4572a8f",
   "lastOpenFiles": [
-    "Database_System/4.Storage_Management.md",
     "Database_System/3.SQL.md",
-    "Database_System/5.Index Structure.md",
-    "Database_System/1.Outline.md",
     "Database_System/2.Relational_Database.md",
+    "Database_System/1.Outline.md",
+    "csapp/Assembler language Introdution.md",
+    "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
+    "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
+    "Rucbase_lab/docs/Rucbase项目结构.pdf",
+    "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
+    "lab-report.md",
+    "Database_System/4.Storage_Management.md",
+    "Database_System/5.Index Structure.md",
     "Database_System/homework/quiz1.md",
     "README.md",
-    "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
-    "Rucbase_lab/docs/Rucbase项目结构.pdf",
     "Database_System/6.Query Execution.md",
-    "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
     "Rucbase_lab/docs/Rucbase使用文档.md",
     "Rucbase_lab/docs/Rucbase开发文档.md",
-    "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "Git_LearnNote/Learning basic operation.md",
     "picture/Pasted image 20240508110243.png",
     "picture/Pasted image 20240508102543.png",
@@ -191,7 +193,6 @@
     "picture/Pasted image 20240424111455.png",
     "picture/Pasted image 20240424104358.png",
     "picture/Pasted image 20240424104003.png",
-    "csapp/Assembler language Introdution.md",
     "Git_LearnNote",
     "MyObsidianNote",
     "未命名.canvas",
