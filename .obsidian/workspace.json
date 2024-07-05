@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Database_System/2.Relational_Database.md",
+                "file": "Database_System/3.SQL.md",
                 "mode": "source",
                 "source": false
               }
@@ -31,7 +31,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -158,14 +159,14 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "ed86df0800d3ae1b",
+  "active": "66fdab78e4572a8f",
   "lastOpenFiles": [
+    "Database_System/3.SQL.md",
     "Database_System/homework/quiz1.md",
+    "Database_System/2.Relational_Database.md",
     "README.md",
     "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
     "Rucbase_lab/docs/Rucbase项目结构.pdf",
-    "Database_System/2.Relational_Database.md",
-    "Database_System/3.SQL.md",
     "Database_System/4.Storage_Management.md",
     "Database_System/5.Index Structure.md",
     "Database_System/6.Query Execution.md",
