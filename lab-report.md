@@ -392,17 +392,44 @@ class IxNodeHandle {
 
 - `bool leaf_lookup(const char *key, Rid **value);`
 
-​		用于叶子结点根据key来查找该结点中的键值对。值`value`作为传出参数，函数返回是否查找成功。
-
-​		提示：可以调用`lower_bound()`和`get_rid()`函数。
+	​用于叶子结点根据key来查找该结点中的键值对。值`value`作为传出参数，函数返回是否查找成功。是查找过程的入口点。它接受一个键（key）和一个指向Rid指针的指针（value）作为参数。函数的目标是在叶子节点中找到给定的键，并且如果找到了，就通过`value`参数返回对应的Rid。这个过程分为几个步骤：首先，使用lower_bound函数找到键的位置；然后，检查这个位置的键是否确实与给定的键匹配；如果匹配，就通过get_rid函数获取对应的Rid，并通过`value`参数返回。
 
 - `page_id_t internal_lookup(const char *key);`
 
 ​		用于内部结点根据key来查找该key所在的孩子结点（子树）。
 
-​		值value为Rid类型，对于内部结点，其Rid中的page_no表示指向的孩子结点的页面编号。而内部结点每个key右边的value指向的孩子结点中的键均大于等于该key，每个key左边的value指向的孩子结点中的键均小于该key。根据这一特性，思考如何找到key所在的孩子结点。
+​		值value为Rid类型，对于内部结点，其Rid中的page_no表示指向的孩子结点的页面编号。而内部结点每个key右边的value指向的孩子结点中的键均大于等于该key，每个key左边的value指向的孩子结点中的键均小于该key。
 
-​		提示：可以调用`upper_bound()`和`get_rid()`函数。
+
+#### B+树的查找
+
+```cpp
+class IxIndexHandle {
+    // B+树的查找
+    std::pair<IxNodeHandle *, bool> find_leaf_page(const char *key, Operation operation, Transaction *transaction,bool find_first = false);
+    bool get_value(const char *key, std::vector<Rid> *result, Transaction *transaction);
+}
+```
+
+学生需要实现以下函数：
+
+- `std::pair<IxNodeHandle *, bool> find_leaf_page(const char *key, Operation operation, Transaction *transaction, bool find_first = false);`
+
+​		用于查找指定键所在的叶子结点。
+
+​		从根结点开始，不断向下查找孩子结点，直到找到包含该key的叶子结点。
+
+​		`operation`表示上层调用此函数时进行的是何种操作（因为查找/插入/删除均需要查找叶子结点）。
+
+​		提示：可以调用`fetch_node()`和`internal_lookup()`函数。
+
+- `bool get_value(const char *key, std::vector<Rid> *result, Transaction *transaction);`
+
+  用于查找指定键在叶子结点中的对应的值`result`。
+
+  提示：可以调用`find_leaf_page()`和`leaf_lookup()`函数。
+
+
 ### 任务2 B+树的插入
 
 ### 任务3 B+树的删除
