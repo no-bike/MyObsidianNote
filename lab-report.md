@@ -251,7 +251,17 @@ bool BufferPoolManager::delete_page(PageId page_id);
 ```C++
 std::unique_ptr<RmRecord> RmFileHandle::get_record(const Rid& rid, Context* context) const {}
 ```
+这段代码是C++编写的，用于处理记录管理系统中的文件操作。主要功能是从文件中获取指定的记录（RmRecord），这个过程涉及到两个主要的步骤：首先，通过页面编号（page_no）获取页面句柄（page_handle）；其次，使用这个页面句柄来初始化一个记录对象，并将其返回。
 
+在get_record函数中，首先调用fetch_page_handle函数来获取指定页面的页面句柄。这个函数接受一个页面编号作为参数，首先检查这个编号是否有效（即是否在文件的页面数范围内），如果无效则抛出`PageNotExistError`异常。如果页面编号有效，它会使用缓冲池管理器（buffer_pool_manager_）来获取对应的页面，并以此创建一个RmPageHandle
+
+一旦获取到页面句柄，get_record函数接着创建一个RmRecord对象，这个对象用于存储记录的数据和大小。在将数据复制到RmRecord对象之前，函数会检查位图（Bitmap），确保指定的槽位（slot_no）中确实有记录存在。如果位图显示该槽位为空，则抛出RecordNotFoundError)异常。如果记录存在，函数会使用memcpy函数将数据从页面句柄指向的槽位复制到`RmRecord`对象的数据区，并设置记录的大小。
+
+最后，函数返回这个初始化好的`RmRecord`对象的智能指针。这种设计使得函数的调用者不需要关心记录的具体存储和管理细节，只需要通过记录的标识（`Rid`）就可以获取到记录的内容。
+
+```C++
+Rid RmFileHandle::insert_record(char* buf, Context* context);
+```
 
 
 ### 实验发现
