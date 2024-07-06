@@ -86,3 +86,10 @@ page_id_t DiskManager::AllocatePage(int fd);
 
 ## 实验2 索引管理器
 
+### 任务1 B+树的查找
+
+### 任务2 B+树的插入
+
+### 任务3 B+树的删除
+
+### 任务4 B+树索引并发控制
