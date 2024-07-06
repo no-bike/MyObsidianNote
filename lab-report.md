@@ -61,42 +61,79 @@ void DiskManager::create_file(const std::string &path) ;
 void DiskManager::destroy_file(const std::string &path);
 ```
 
-使用unlink函数来删除文件，但需要注意的是，如果指定的文件不存在，或者调用进程没有足够的权限来删除该文件，[`unlink`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fusr%2Finclude%2Funistd.h%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A857%2C%22character%22%3A11%7D%5D "../../../../../usr/include/unistd.h")函数将失败，并返回`-1`。成功执行时，它会返回`0`。
+使用unlink函数来删除文件，但需要注意的是，如果指定的文件不存在，或者调用进程没有足够的权限来删除该文件，unlink函数将失败，并返回`-1`。成功执行时，它会返回`0`。
 。
 ```c++
 int DiskManager::open_file(const std::string &path);
 ```
 
+这段代码是一个C++项目中的一部分，用于管理磁盘上的文件。具体来说，它定义了一个名为DiskManager的类，该类中的open_file方法用于打开一个指定路径的文件。这个方法首先检查给定路径的文件是否存在，然后检查该文件是否已经被打开，最后如果文件未打开，它会尝试打开文件，并更新内部的文件描述符映射。
 
+首先，open_file方法接收一个std::string，表示要打开文件的路径。方法内部首先调用is_file(函数来检查路径指向的文件是否存在。is_file函数使用stat宏来判断路径是否指向一个常规文件。如果文件不存在，open_file方法会抛出一个FileNotFoundError异常，并返回`-1`。
+
+接下来，open_file方法检查path2fd_（一个从文件路径到文件描述符的映射）中是否已经包含了给定的路径，以判断文件是否已经被打开。如果文件已经打开，方法会抛出一个InternalError异常，并返回`-1`。
+
+如果文件未打开，open_file方法会使用open系统调用尝试以读写模式（O_RDWR）打开文件。[`open`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "../../../../../usr/include/x86_64-linux-gnu/bits/fcntl2.h")函数的第一个参数是文件路径的C风格字符串表示，可以通过std::string的c_str方法获得。成功打开文件后，open函数会返回一个文件描述符，这是一个非负整数，用于标识打开的文件。
+
+最后，open_file方法会更新两个映射：path2fd_和fd2path_。path2fd_映射用于记录文件路径到文件描述符的映射，而fd2path_映射则记录文件描述符到文件路径的映射。这样做可以方便地通过文件路径或文件描述符查找对应的另一项。方法最终返回打开的文件的文件描述符。
 
 ```c++
-page_id_t DiskManager::AllocatePage(int fd);
+void DiskManager::close_file(int fd);
 ```
 
+将path2fd_和fd2path_两个映射里该文件删除，再使用close。
 
 
 #### 实验发现
 
-实验验证了哪些课堂上学到的理论知识？逐项说明，条理清晰，列出知识点与函数之间的对应关系。
+基础linux磁盘操作。
 
-- 
-- 
 
 ### 任务1.2：缓冲池替换策略
 
 #### LRUReplacer类的实现
 
-内容
+在每个函数内部，首先使用了C++17的`std::scoped_lock`来自动管理互斥锁latch_。`std::scoped_lock`是一个作用域锁，它在构造时自动上锁，并在析构时自动解锁，从而避免了死锁的发生并保证了线程安全。
 
+```c++
+bool LRUReplacer::victim(frame_id_t* frame_id);
+```
+
+这段代码是实现最近最少使用（LRU）替换策略的一部分，用于在缓存管理中选择一个页面进行淘汰。LRU策略的核心思想是淘汰最长时间未被访问的页面，因为这样的页面在未来被访问的可能性较小。
+
+首先，LRUReplacer::victim()函数接收一个指向frame_id_t类型的指针frame_id作为参数，该函数的目的是找到并返回一个被淘汰的页面的标识符。
+
+接下来，函数检查当前是否有可以被淘汰的页面，这是通过调用Size()函数来完成的，该函数返回LRUlist_的大小，即当前缓存中页面的数量。如果Size()大于0，表示有页面可以被淘汰。
+
+如果有可被淘汰的页面，代码首先从LRUlist_中获取最后一个元素，即最久未被访问的页面，然后从LRUhash_中移除该页面。LRUlist_是一个双向链表，用于按访问顺序存储页面，而LRUhash_是一个哈希表，用于快速查找页面是否存在于缓存中。最后，将被淘汰的页面的标识符赋值给`*frame_id`，并返回`true`表示成功找到并淘汰了一个页面。
+
+如果没有可被淘汰的页面，即LRUlist_为空，函数将frame_id设置为`nullptr`并返回`false`，表示没有页面被淘汰。
+
+```c++
+void LRUReplacer::pin(frame_id_t frame_id);
+```
+
+`pin`函数的目的是将指定的帧（frame）标记为“固定”的，意味着这个帧不应该被替换。
+
+如果函数在未固定列表和哈希表中找到了这个frame_id，则会将其从未固定列表与哈希表中删除。
+
+```c++
+void LRUReplacer::unpin(frame_id_t frame_id);
+```
+
+如果未固定列表和哈希表中没有该frame_id，则将其添加进去。
 #### 实验发现
 
-内容
+课上讲的LRU策略，在这一任务中实现。
+
 
 ### 任务1.3：缓冲池管理器
 
 #### BufferPoolManager类的实现
 
-内容
+```c++
+bool BufferPoolManager::find_victim_page(frame_id_t* frame_id);
+```
 
 #### 实验发现
 
