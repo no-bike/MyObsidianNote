@@ -63,6 +63,11 @@ void DiskManager::destroy_file(const std::string &path);
 
 使用unlink函数来删除文件，但需要注意的是，如果指定的文件不存在，或者调用进程没有足够的权限来删除该文件，[`unlink`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fusr%2Finclude%2Funistd.h%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A857%2C%22character%22%3A11%7D%5D "../../../../../usr/include/unistd.h")函数将失败，并返回`-1`。成功执行时，它会返回`0`。
 。
+```c++
+int DiskManager::open_file(const std::string &path);
+```
+
+
 
 ```c++
 page_id_t DiskManager::AllocatePage(int fd);
