@@ -263,10 +263,63 @@ std::unique_ptr<RmRecord> RmFileHandle::get_record(const Rid& rid, Context* cont
 Rid RmFileHandle::insert_record(char* buf, Context* context);
 ```
 
+`insert_record`函数的目的是在文件的指定位置（由`Rid`对象指定的页面号和槽号）插入一条记录。首先，它检查指定的页面号是否超出了文件当前的页面数。如果是，那么它会调用create_new_page_handle函数来创建一个新页面。接着，通过fetch_page_handle函数获取目标页面的句柄。使用`memcpy`函数将记录数据从输入缓冲区复制到目标页面的指定槽位。之后，更新页面头部的记录数，并在位图中标记该槽位已被使用。最后，如果插入记录后页面变满（即页面的记录数达到每页最大记录数），则更新文件头部的第一个空闲页面号。
 
+```c++
+void RmFileHandle::delete_record(const Rid& rid, Context* context);
+```
+
+`delete_record` 函数的目的是删除一个指定的记录。它首先通过调用fetch_page_handle。接着，使用`Bitmap::reset`方法更新页面的位图，标记指定槽位（`slot_no`）的记录为已删除。然后，减少页面头（`page_hdr`）中的记录数（`num_records`）。如果页面从满变为未满（即记录数减少到页面最大记录数减一），则调用release_page_handle函数处理页面释放逻辑。
+
+```c++
+void RmFileHandle::update_record(const Rid& rid, char* buf, Context* context);
+```
+
+`update_record`函数的目的是更新文件中特定记录的内容。它接收三个参数：一个`Rid`类型的`rid`，它可能代表记录的唯一标识符；一个字符指针`buf`，指向要更新的新记录内容；一个`Context`类型的指针`context`，可能用于传递操作的上下文信息。
+
+函数的实现分为两个主要步骤：
+
+1. 首先，它调用fetch_page_handle函数，传入`rid`的页面编号（page_no），以获取该记录所在页面的句柄（RmPageHandle类型）。这个页面句柄包含了操作页面所需的所有信息。
+2. 然后，它检查位图（`bitmap`），确认记录槽（`slot_no`）是否已设置。如果未设置，表示页面不存在，抛出PageNotExistError异常。如果记录槽已设置，它使用`memcpy`函数将新记录内容从`buf`复制到该槽位，大小为file_hdr_.record_size.
+
+```C++
+RmPageHandle RmFileHandle::fetch_page_handle(int page_no) const{}
+```
+
+fetch_page_handle函数的目的是获取指定页面编号的页面句柄。它接收一个整数page_no作为参数，表示要获取句柄的页面编号
+
+```c++
+RmPageHandle RmFileHandle::create_new_page_handle();
+```
+
+用于处理与“页面”相关的操作，这在数据库管理系统或文件系统中是一个常见的概念。具体来说，它定义了一个名为RmFileHandle::create_new_page_handle的成员函数，该函数的目的是在文件中创建一个新的页面，并返回一个与新页面相关联的页面句柄(RmPageHandle)。
+
+首先，函数通过指定文件描述符fd_和一个无效的页面IDINVALID_PAGE_ID来初始化一个PageId结构体。这表明新页面尚未分配一个有效的页面编号。
+
+接下来，它调用buffer_pool_manager_的new_page方法来实际创建一个新页面，这个方法会分配一个新的页面并返回一个指向该页面的指针。这里使用了缓冲池管理器，这是一种优化技术，可以减少对磁盘的直接访问，从而提高性能。
+
+然后，函数初始化一个RmPageHandle对象page_handle，但初始时并没有关联到具体的页面上（因为new_page可能会失败）。如果new_page成功返回了一个非空指针，表示页面创建成功，那么函数会更新page_handle，使其指向新创建的页面，并初始化页面头部和位图等信息。
+
+页面头部(page_hdr)包含了一些元数据，比如下一个空闲页面的编号和当前页面中记录的数量。这里将下一个空闲页面编号设置为RM_NO_PAGE，表示没有下一个空闲页面，同时记录数量设置为0，因为这是一个新页面。
+
+最后，函数更新文件头部信息(file_hdr_)，如果这是文件中的第一个页面，它还会更新第一个空闲页面的编号。无论如何，它都会增加文件中页面的总数。
+
+```c++
+void RmFileHandle::release_page_handle(RmPageHandle&page_handle)
+```
+1. 判断file_hdr_中是否还有空闲页
+
+     1.1 没有空闲页：使用缓冲池来创建一个新page；可直接调用create_new_page_handle()
+
+    1.2 有空闲页：直接获取第一个空闲页
+2. 生成page handle并返回给上层
 ### 实验发现
 
+
 ### 任务2.2 记录迭代器
+
+### RmScan类实现
+
 
 ## 实验2 索引管理器
 
