@@ -13,38 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "202ca7e22fd42ebf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
                 "file": "lab-report.md",
                 "mode": "source",
                 "source": false
               }
             }
-          },
-          {
-            "id": "81770dd44a1cbe6d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -171,11 +146,13 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "202ca7e22fd42ebf",
+  "active": "d0052040128298d9",
   "lastOpenFiles": [
+    "Pasted image 20240706231713.png",
+    "Pasted image 20240706231657.png",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
-    "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "lab-report.md",
+    "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
     "Rucbase_lab/docs/Rucbase项目结构.pdf",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
@@ -204,7 +181,6 @@
     "picture/Pasted image 20240424111706.png",
     "picture/Pasted image 20240424111455.png",
     "picture/Pasted image 20240424104358.png",
-    "picture/Pasted image 20240424104003.png",
     "Git_LearnNote",
     "MyObsidianNote",
     "未命名.canvas",
