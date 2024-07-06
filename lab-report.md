@@ -37,14 +37,32 @@
 ```c++
 void DiskManager::write_page(int fd, page_id_t page_no, const char *offset, int num_bytes);
 ```
+将页面写入到磁盘中，需要使用lseek()函数定位文件头，利用句柄fd和偏离量。再通过write（）函数写入。
 
-
+注意错误类型要选择正确。
 
 ```c++
 void DiskManager::read_page(int fd, page_id_t page_no, char *offset, int num_bytes);
 ```
+将页面写入到磁盘中，需要使用lseek()函数定位文件头，利用句柄fd和偏离量。再通过read（）函数写入。
 
+注意错误类型要选择正确。
 
+```c++
+void DiskManager::create_file(const std::string &path) ;
+```
+这段C++代码是用来打开或创建一个文件的。它使用了`open`函数，这是一个在POSIX兼容的操作系统（如Linux和macOS）中常用的系统调用，用于打开和可能创建一个文件。
+
+`open`函数的第一个参数是文件的路径，这里通过`path.c_str()`获取，其中`path`是一个`std::string`类型的变量，表示文件的路径。`c_str()`函数用于获取`std::string`的C风格字符串表示，因为`open`函数需要一个C风格的字符串作为路径参数。
+
+第二个参数是一个位掩码，用于指定文件的打开方式和行为。在这个实现中，使用了`O_CREAT`和`O_WRONLY`两个选项的按位或（`|`）组合。`O_CREAT`表示如果指定的文件不存在，则创建它；`O_WRONLY`表示文件将以只写模式打开。这意味着如果文件已经存在，这段代码将打开它以便写入；如果文件不存在，将创建一个新文件，然后以只写模式打开。
+
+```c++
+void DiskManager::destroy_file(const std::string &path);
+```
+
+使用unlink函数来删除文件，但需要注意的是，如果指定的文件不存在，或者调用进程没有足够的权限来删除该文件，[`unlink`](command:_github.copilot.openSymbolFromReferences?%5B%7B%22%24mid%22%3A1%2C%22path%22%3A%22%2Fusr%2Finclude%2Funistd.h%22%2C%22scheme%22%3A%22file%22%7D%2C%7B%22line%22%3A857%2C%22character%22%3A11%7D%5D "../../../../../usr/include/unistd.h")函数将失败，并返回`-1`。成功执行时，它会返回`0`。
+。
 
 ```c++
 page_id_t DiskManager::AllocatePage(int fd);
