@@ -411,27 +411,231 @@ class IxIndexHandle {
 }
 ```
 
-学生需要实现以下函数：
-
 - `std::pair<IxNodeHandle *, bool> find_leaf_page(const char *key, Operation operation, Transaction *transaction, bool find_first = false);`
 
 ​		用于查找指定键所在的叶子结点。
+	函数的执行流程如下：
 
-​		从根结点开始，不断向下查找孩子结点，直到找到包含该key的叶子结点。
-
-​		`operation`表示上层调用此函数时进行的是何种操作（因为查找/插入/删除均需要查找叶子结点）。
-
-​		提示：可以调用`fetch_node()`和`internal_lookup()`函数。
+1. **获取根节点**：首先，通过`fetch_node`函数和根页面的编号（`file_hdr_->root_page_`）获取索引的根节点。
+2. **向下查找**：然后，函数进入一个循环，不断向下遍历树，直到找到一个叶子节点。在每一步中，它使用当前节点的`internal_lookup`方法来找到下一个要遍历的子节点，并通过`fetch_node`获取该子节点。同时，它使用`buffer_pool_manager_`)来解除对当前节点页面的锁定（`unpin_page`），以便其他操作可以使用这些页面。
+3. **返回叶子节点**：一旦找到叶子节点，循环结束，函数返回一个包含叶子节点指针和布尔值[`true`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "deps/googletest/googletest/include/gtest/internal/gtest-internal.h")的`std::pair`。
 
 - `bool get_value(const char *key, std::vector<Rid> *result, Transaction *transaction);`
 
   用于查找指定键在叶子结点中的对应的值`result`。
 
-  提示：可以调用`find_leaf_page()`和`leaf_lookup()`函数。
+	首先，`IxIndexHandle::get_value`函数通过调用`find_leaf_page`函数来定位目标键所在的叶子节点。`find_leaf_page`函数从根节点开始，逐层向下遍历B+树，直到找到包含目标键的叶子节点。这个过程中，如果当前节点不是叶子节点，则会根据目标键值查找下一层的节点，直到找到叶子节点为止。在查找过程中，使用了`buffer_pool_manager_`)来管理页面的引用，确保不再需要的页面被及时释放。
+
+	找到叶子节点后，`get_value`函数接着调用`leaf->leaf_lookup`方法来在叶子节点中查找目标键的位置。`leaf_lookup`方法首先使用`lower_bound`函数确定目标键可能存在的位置，然后通过比较确定目标键是否真的存在于该位置。如果目标键存在，`leaf_lookup`会通过`get_rid`函数获取对应的Rid，并通过参数返回。
+
+	最后，如果目标键存在，`get_value`函数会将找到的Rid添加到结果向量中，并返回`true`表示查找成功。如果目标键不存在，则直接返回`false`。在整个过程中，`std::scoped_lock`用于确保线程安全，防止在并发访问时出现数据竞争。
+
+#### 实验发现
 
 
 ### 任务2 B+树的插入
 
+#### 结点内的插入
+
+```cpp
+class IxNodeHandle {
+    // 结点内的插入
+    void insert_pairs(int pos, const char *key, const Rid *rid, int n);
+    int insert(const char *key, const Rid &value);
+}
+```
+
+- `void insert_pairs(int pos, const char *key, const Rid *rid, int n);`
+
+​		用于在结点中的指定位置插入多个键值对。
+
+​		该函数插入指定`n`个单位长度的键值对数组`(key,rid)`到结点中的指定位置`pos`。其中`key`为键数组的首地址，其每个单位长度为`file_hdr_->col_lens_[i]`。`rid`为值数组的首地址，其每个单位长度为`sizeof(Rid)`。这里内部存储结构是键数组和值数组连续存储，即键数组的后面存储了值数组。
+
+首先，方法接收四个参数：`pos`表示插入的起始位置，`key`是指向键的指针，`rid`是指向记录标识符（Record Identifier）的指针，`n`表示要插入的键值对数量。方法的开始部分首先通过调用`get_size`函数获取当前节点中键的数量，以此来判断`pos`是否在合法范围内（即`pos`应该在0到当前键数量之间，包含两端）。如果`pos`不合法，方法直接返回，不执行任何插入操作。
+
+如果`pos`合法，接下来的步骤是腾出空间来插入新的键值对。这通过从节点的末尾开始，将现有的键值对向后移动`n`个位置来实现，为新的键值对腾出空间。这一过程通过循环实现，循环中使用`set_key`和`set_rid`方法来设置移动后的键和记录标识符。
+
+之后，方法进入实际的插入过程。通过另一个循环，将新的键值对插入到之前腾出的空间中。键的插入通过计算偏移量（`key + file_hdr->col_tot_len_ * i`）来实现，这里假设每个键的长度是固定的，并且通过文件头信息中的`col_tot_len_`字段来获取。记录标识符的插入则直接通过索引访问`rid`数组实现。
+
+最后，更新节点中键的数量，即在原有的基础上加上新插入的键值对数量`n`。
+
+- `int insert(const char *key, const Rid &value);`
+
+   1. 查找要插入的键值对应该插入到当前节点的哪个位置
+
+   2. 如果key重复则不插入
+
+   3. 如果key不重复则插入键值对
+
+   4. 返回完成插入操作之后的键值对数量
+
+#### B+树的插入
+
+```cpp
+class IxIndexHandle {
+    // B+树的插入
+    page_id_t insert_entry(const char *key, const Rid &value, Transaction *transaction);
+    IxNodeHandle *split(IxNodeHandle *node);
+    void insert_into_parent(IxNodeHandle *old_node, const char *key, IxNodeHandle *new_node, Transaction *transaction);
+}
+```
+
+- `page_id_t insert_entry(const char *key, const Rid &value, Transaction *transaction);`
+
+​		用于将指定键值对插入到B+树。
+
+​`insert_entry`函数是插入操作的入口点。它首先通过`find_leaf_page`函数找到应该插入新键值对的叶子节点。然后，它调用叶子节点的`insert`方法尝试插入键值对。如果插入成功，并且叶子节点因此变得已满，就需要分裂这个节点，并将新节点的一些信息插入到父节点中。这个过程可能会递归地向上延伸，直到根节点。最后，函数确保所有涉及的页面都被正确地“unpin”，以释放资源。
+
+- `IxNodeHandle *split(IxNodeHandle *node);`
+
+​		用于分裂结点。函数返回分裂产生的新结点。
+
+​	首先，`split`函数接收一个需要分裂的节点`node`作为参数。函数的目标是将`node`中的键值对平均分配到`node`和一个新创建的节点`new_node`中。如果`node`是叶子节点，还需要更新叶子节点链表中的指针，确保叶子节点之间的顺序关系正确。
+
+在分裂过程中，首先通过`create_node`函数创建一个新的节点`new_node`。然后，根据`node`是否为叶子节点执行不同的操作。如果`node`是叶子节点，将`new_node`也标记为叶子节点，并更新相关的指针，包括`prev_leaf`和`next_leaf`，以及文件头中的`last_leaf_`指针（如果需要的话）。这些操作确保了叶子节点之间的双向链表关系得到维护。
+
+接下来，无论`node`是否为叶子节点，都会将`node`中的一半键值对移动到`new_node`中。这通过`insert_pairs`函数实现，该函数将指定数量的键值对插入到目标节点的指定位置。`insert_pairs`函数首先检查插入位置的合法性，然后为新插入的键值对腾出空间，并更新节点的键数量。
+
+最后，如果`node`不是叶子节点，还需要更新`new_node`中所有子节点的父节点信息，以保持树结构的正确性。这通过maintain_child函数实现，该函数接收一个节点和子节点的索引，然后加载相应的子节点并更新其父节点信息。
+
+- `void insert_into_parent(IxNodeHandle *old_node, const char *key, IxNodeHandle *new_node, Transaction *transaction);`
+
+​		用于结点分裂后，更新父结点中的键值对。
+
+​		这段代码是一个索引结构中插入新键值对的过程，特别是在B树或B+树这样的平衡树结构中处理节点分裂后的情况。整个过程主要关注在将一个新的键（`key`）和对应的记录标识符（`Rid`）插入到适当的父节点中，并且处理可能因为插入而导致的父节点分裂。这个过程是递归的，因为父节点分裂可能会一直传播到根节点。
+
+1. **判断是否为根节点**：首先，代码检查当前要处理的旧节点（`old_node`）是否是根节点。如果是，那么会创建一个新的根节点（`new_root_node`），并更新根节点的页面编号。新根节点的父页面编号设置为无效（`INVALID_PAGE_ID`），表示它是树的最顶层。然后，将旧根节点作为新根节点的子节点插入。这一步骤确保了树的高度可以在必要时增加。
+    
+2. **获取父节点**：如果旧节点不是根节点，那么通过旧节点的父页面编号来获取其父节点（`parent`）。这一步是为了找到应该插入新键值对的节点。
+    
+3. **插入键值对**：无论是新创建的根节点还是通过父页面编号找到的父节点，都会在适当的位置插入新的键值对。插入位置是基于旧节点在父节点中的位置（`insert_pos`）来确定的，新键值对插入到这个位置之后。
+    
+4. **处理父节点分裂**：插入新键值对后，如果父节点的大小超过了其最大容量，就需要分裂父节点。分裂操作会产生一个新的节点（`parent_new_node`），并且需要将分裂产生的新键值对插入到父节点的父节点中，这可能会导致递归地分裂更高层的节点。每次分裂操作后，都需要对涉及的页面进行“unpin”操作，以表明这些页面的数据已经被修改并可以被写回磁盘。
+    
+5. **资源管理**：最后，无论是否发生了分裂，都会对父节点进行“unpin”操作，确保资源得到正确管理。
+
+#### 实验发现
+
+
+
+
 ### 任务3 B+树的删除
+
+
+#### 结点内的删除
+
+```cpp
+class IxNodeHandle {
+    // 结点内的删除
+    void erase_pair(int pos);
+    int remove(const char *key);
+}
+```
+
+学生需要实现以下函数：
+
+- `void erase_pair(int pos);`
+
+这个过程涉及到三个主要步骤：删除键、删除RID、更新节点中键值对的数量。
+
+1. **删除键**：使用`memmove`函数来删除指定位置`pos`上的键。`memmove`函数的作用是将内存内容从一个位置复制到另一个位置，这里它被用来覆盖掉要删除的键。具体操作是将`pos + 1`位置开始的所有键向前移动一个键的位置，覆盖掉`pos`位置上的键。键的大小由`file_hdr->col_tot_len_`确定，表示每个键占用的字节长度。这样，从`pos`位置开始的所有键都向前移动了一个位置，实现了删除操作。
+    
+2. **删除RID**：注释掉的`memmove`行是原本用于删除RID的代码，但它被替换为了一个循环。这个循环通过`set_rid`函数将`pos + 1`位置及之后的所有RID向前移动一个位置，覆盖掉`pos`位置的RID。`get_rid`函数用于获取指定位置的RID，而`set_rid`则用于设置指定位置的RID。这种方法相比使用`memmove`可能更清晰地表达了删除RID的逻辑，尽管在性能上可能略有不同。
+    
+3. **更新节点的键值对数量**：通过`set_size(get_size() - 1)`更新节点中键值对的数量，即在原有数量的基础上减一。`get_size`函数返回当前节点中键值对的数量，`set_size`则用于更新这个数量。这一步骤是必要的，因为删除一个键值对后，节点中的总键值对数量自然应该减少。
+
+
+#### B+树的删除
+
+```cpp
+class IxIndexHandle {
+    // B+树的删除
+    bool delete_entry(const char *key, Transaction *transaction);
+    bool coalesce_or_redistribute(IxNodeHandle *node, Transaction *transaction = nullptr,bool *root_is_latched = nullptr);
+    bool coalesce(IxNodeHandle **neighbor_node, IxNodeHandle **node, IxNodeHandle **parent, int index,Transaction *transaction, bool *root_is_latched);
+    void redistribute(IxNodeHandle *neighbor_node, IxNodeHandle *node, IxNodeHandle *parent, int index);
+    bool adjust_root(IxNodeHandle *old_root_node);
+}
+```
+
+学生需要实现以下函数：
+
+- `bool delete_entry(const char *key, Transaction *transaction);`
+
+​		用于删除B+树中含有指定`key`的键值对。
+
+​		首先，`delete_entry`函数是删除操作的入口点。它首先通过`find_leaf_page`函数找到包含要删除键值对的叶子节点。然后，它尝试在该叶子节点中通过调用`IxNodeHandle::remove`法来删除键值对。如果删除成功（即叶子节点的大小发生了变化），它会调用`coalesce_or_redistribute`函数来检查是否需要对树进行重组，以保持树的平衡。如果需要，它还会处理与事务相关的逻辑，比如在事务的`delete_page_set`中记录删除的页面。
+
+`IxNodeHandle::remove`函数负责在特定的节点中删除键值对。它首先找到要删除的键值对的位置，如果找到了，就将其删除，并返回节点中剩余键值对的数量。
+
+`find_leaf_page`函数用于从树的根节点开始，逐层向下查找，直到找到包含目标键的叶子节点。这个过程涉及到不断地获取子节点并解除对父节点的锁定，直到到达叶子节点。
+
+`coalesce_or_redistribute`函数处理节点删除后的树重组逻辑。如果删除操作导致节点的键值对数量低于最小值，这个函数会尝试通过合并或重分配键值对来保持树的平衡。这包括找到节点的兄弟节点，并根据两个节点的键值对总数决定是合并节点还是重新分配键值对。
+
+最后，`maintain_parent`函数确保在进行节点修改后，父节点中的键值对仍然正确地反映了子节点的最小键值。这是通过在父节点中查找子节点的位置，然后根据需要更新父节点中的键值对来实现的。
+
+- `bool coalesce_or_redistribute(IxNodeHandle *node, Transaction *transaction = nullptr,bool *root_is_latched = nullptr);`
+
+  用于处理合并和重分配的逻辑。函数返回是否有结点被删除（无论是`node`还是它的兄弟结点被删除）。传出参数`root_is_latched`记录根结点是否被上锁，该参数将在任务3使用，在本任务2中不使用。
+
+​	包含了几个关键的操作：调整根节点（`adjust_root`、重新分配（`redistribute`）、合并（`coalesce`）、获取记录标识符（`get_rid`）和维护父节点（`maintain_parent`)
+ 调整根节点（`adjust_root`）
+
+这个函数处理根节点的调整。如果根节点是内部节点且只有一个孩子，它会将这个孩子提升为新的根节点。如果根节点是叶子节点且为空，它会更新根页面编号为无效值。这两种情况都是在树的高度减小时发生的。
+
+ 重新分配
+
+当一个节点的键值对数量低于最小值时，可以从它的兄弟节点借一个键值对。这个函数根据兄弟节点是前驱还是后继来决定如何移动键值对，并更新父节点中的相关信息。
+
+ 合并
+
+如果一个节点和它的兄弟节点的键值对总数仍然低于两个节点的最小键值对数，这两个节点可以合并。`coalesce`函数将一个节点的所有键值对移动到它的兄弟节点中，并更新父节点中的信息。如果合并后的节点是叶子节点且是最右边的叶子节点，还需要更新文件头中的最后一个叶子节点的信息。
+
+ 获取记录标识符
+
+这个函数根据给定的索引项（`Iid`）获取相应的记录标识符（`Rid`)
+
+ 维护父节点
+
+当节点中的键值对发生变化时，可能需要更新父节点中的键值。这个函数遍历从当前节点开始向上的所有父节点，更新它们中的键值以保持树的正确性。
+
+整体来看，这些函数共同工作以维护B+树的结构和平衡。通过调整根节点、重新分配键值对、合并节点以及维护父节点的键值，`IxIndexHandle`类确保了B+树在插入和删除操作后仍然保持有效和高效的结构。
+
+- `bool coalesce(IxNodeHandle **neighbor_node, IxNodeHandle **node, IxNodeHandle **parent, int index,Transaction *transaction, bool *root_is_latched);`
+
+​		将`node`向前合并到其前驱`neighbor_node`。函数返回`node`的父结点`parent`否需要被删除。
+
+​		1. **合并操作的主要逻辑** ：首先，通过索引判断`neighbor_node`是否为node的前驱节点，如果不是，则交换两者，确保`neighbor_node`作为左节点，node作为右节点。然后，将node节点的键值对移动到`neighbor_node`中，并更新`node`节点孩子节点的父节点信息（通过调用`maintain_child`函数）。接着，释放和删除`node`节点，并从父节点中删除`node`节点的信息。最后，如果操作的是叶子节点且为最右叶子节点，需要更新`file_hdr_`的`last_leaf`属性。
+    
+2. **键值对的插入和删除**：`insert_pairs` 函数用于在指定位置插入键值对，首先检查位置的合法性，然后腾出空间并插入新的键值对，最后更新节点的键数量。`erase_pair` 函数用于删除指定位置的键值对，通过移动内存来覆盖要删除的键值对，并更新节点的键数量。
+    
+3. **合并或重分配的决策逻辑** ：首先判断节点是否为根节点，如果是，则调用`adjust_root`函数处理。如果不是根节点且节点的键值对数量满足最小要求，则不需要合并或重分配。如果需要合并或重分配，则获取节点的父节点和兄弟节点，根据键值对数量决定是进行重分配还是合并操作。
+    
+4. **叶子节点的删除** ：当删除叶子节点时，需要更新前一个叶子节点的`next_leaf`属性和后一个叶子节点的`prev_leaf`属性，以保持叶子节点链表的正确性。
+    
+5. **节点句柄的释放**：在删除节点后，需要更新文件头中的页面数量。
+    
+6. **维护子节点的父节点信息** ：在节点合并或键值对移动后，需要更新子节点的父节点信息，以保持树结构的正确性。
+
+- `void redistribute(IxNodeHandle *neighbor_node, IxNodeHandle *node, IxNodeHandle *parent, int index);`
+
+​		重新分配`node`和兄弟结点`neighbor_node`的键值对。参数`index`表示`node`在parent中的rid_idx，其决定`neighbor_node`是否为`node`的前驱结点。
+
+​		首先，[`redistribute`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")函数的目的是在[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")和其邻居节点[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")之间重新分配键值对，以及更新父节点[`parent`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")中的相关信息。这个函数首先通过[`index`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")判断[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")是[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的前驱节点还是后继节点。如果[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")是前驱节点，那么它会从[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的最后一个键值对开始移动到[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的第一个位置；反之，如果[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")是后继节点，它会从[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的第一个键值对开始移动到[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的最后一个位置。移动键值对后，会调用[`maintain_child`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")函数来更新孩子节点的父节点信息。
+
+接下来，[`erase_pair`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.cpp")函数用于从一个节点中删除指定位置的键值对。它首先通过[`memmove`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "d:/vs配置/mingw64/x86_64-w64-mingw32/include/wchar.h")函数移动键数组（[`keys`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")）和记录标识符数组（`rids`），以覆盖要删除的键值对。然后，它会更新节点中键值对的数量。这个函数是[`redistribute`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")过程中用于从[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")中删除已经移动到[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的键值对的关键步骤。
+
+最后，[`maintain_child`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")函数用于更新节点的孩子节点信息。当一个节点不是叶子节点时，这个函数会加载其指定孩子节点，并将孩子节点的父节点设置为当前节点。这是在键值对移动过程中，确保树结构正确性的重要步骤。
+
+- `bool adjust_root(IxNodeHandle *old_root_node);`
+
+​		用于根结点被删除了一个键值对之后的处理。函数返回根结点是否需要被删除。
+
+​		考虑两种根结点需要被删除的情况：（1）删除了根结点的最后一个键值对，但它仍然有一个孩子。那么可以将其孩子作为新的根结点。（2）删除了整个B+树的最后一个键值对。那么直接更新文件头中记录的根结点为`INVALID_PAGE_ID`。
+
+​		对于其他情况则无需任何处理，因为根结点无需被删除。
+
+​		提示：需要调用`release_node_handle()`。
+
 
 ### 任务4 B+树索引并发控制
