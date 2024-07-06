@@ -621,21 +621,28 @@ class IxIndexHandle {
 
 ​		重新分配`node`和兄弟结点`neighbor_node`的键值对。参数`index`表示`node`在parent中的rid_idx，其决定`neighbor_node`是否为`node`的前驱结点。
 
-​		首先，[`redistribute`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")函数的目的是在[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")和其邻居节点[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")之间重新分配键值对，以及更新父节点[`parent`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")中的相关信息。这个函数首先通过[`index`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")判断[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")是[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的前驱节点还是后继节点。如果[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")是前驱节点，那么它会从[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的最后一个键值对开始移动到[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的第一个位置；反之，如果[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")是后继节点，它会从[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的第一个键值对开始移动到[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的最后一个位置。移动键值对后，会调用[`maintain_child`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")函数来更新孩子节点的父节点信息。
+​		首先，`redistribute`函数的目的是在`node`和其邻居节点`neighbor_node`间重新分配键值对，以及更新父节点partent中的相关信息。这个函数首先通过Index判断`neighbor_node`是node的前驱节点还是后继节点。如果neighbor_node前驱节点，那么它会从`neighbor_node`最后一个键值对开始移动到node的第一个位置；反之，如果`neighbor_node`是后继节点，它会从`neighbor_node`的第一个键值对开始移动到`node`的最后一个位置。移动键值对后，会调用`maintain_child`函数来更新孩子节点的父节点信息。
 
-接下来，[`erase_pair`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.cpp")函数用于从一个节点中删除指定位置的键值对。它首先通过[`memmove`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "d:/vs配置/mingw64/x86_64-w64-mingw32/include/wchar.h")函数移动键数组（[`keys`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")）和记录标识符数组（`rids`），以覆盖要删除的键值对。然后，它会更新节点中键值对的数量。这个函数是[`redistribute`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")过程中用于从[`neighbor_node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")中删除已经移动到[`node`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")的键值对的关键步骤。
+接下来，`erase_pair`函数用于从一个节点中删除指定位置的键值对。它首先通过memmove函数移动键数组(keys)和记录标识符数组（`rids`），以覆盖要删除的键值对。然后，它会更新节点中键值对的数量。这个函数是`redistribute`过程中用于从`neighbor_node`中删除已经移动到node的键值对的关键步骤。
 
-最后，[`maintain_child`](vscode-file://vscode-app/d:/vs%E9%85%8D%E7%BD%AE/Microsoft%20VS%20Code/resources/app/out/vs/code/electron-sandbox/workbench/workbench.html "src/index/ix_index_handle.h")函数用于更新节点的孩子节点信息。当一个节点不是叶子节点时，这个函数会加载其指定孩子节点，并将孩子节点的父节点设置为当前节点。这是在键值对移动过程中，确保树结构正确性的重要步骤。
+最后，`maintain_child`函数用于更新节点的孩子节点信息。当一个节点不是叶子节点时，这个函数会加载其指定孩子节点，并将孩子节点的父节点设置为当前节点。这是在键值对移动过程中，确保树结构正确性的重要步骤。
 
 - `bool adjust_root(IxNodeHandle *old_root_node);`
 
 ​		用于根结点被删除了一个键值对之后的处理。函数返回根结点是否需要被删除。
 
-​		考虑两种根结点需要被删除的情况：（1）删除了根结点的最后一个键值对，但它仍然有一个孩子。那么可以将其孩子作为新的根结点。（2）删除了整个B+树的最后一个键值对。那么直接更新文件头中记录的根结点为`INVALID_PAGE_ID`。
+​		函数的主体分为两大部分，分别处理旧根节点是内部节点和叶节点的情况。
 
-​		对于其他情况则无需任何处理，因为根结点无需被删除。
+1. **内部节点的处理**：如果`old_root_node`是一个内部节点（非叶节点），函数会检查这个节点的大小（即它包含的键值对数量）。如果大小为1，说明这个内部节点只有一个孩子，那么这个孩子节点将被提升为新的根节点。为了实现这一点，函数首先获取这个孩子节点的页码（`new_root_page_no`），然后调用`update_root_page_no`函数更新根节点的页码。接着，通过`fetch_node`函数获取新根节点的句柄，并将其父页面编号设置为无效（`INVALID_PAGE_ID`），表示这是一个根节点。
+    
+2. **叶节点的处理**：如果`old_root_node`是一个叶节点，函数会检查这个节点的大小。如果大小为0，说明这个叶节点没有包含任何数据，此时会通过调用`release_node_handle`函数释放这个节点，并通过`update_root_page_no`函数将根页面编号设置为无效。
+    
 
-​		提示：需要调用`release_node_handle()`。
+在处理完上述两种情况后，如果旧根节点既不是大小为1的内部节点，也不是大小为0的叶节点，函数不会进行任何操作。
+
+#### 实验发现
+
+
 
 
 ### 任务4 B+树索引并发控制
