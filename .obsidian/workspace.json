@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "9ac2bb8d473977e9",
@@ -112,7 +111,7 @@
               "type": "backlink",
               "state": {
                 "file": "lab-report.md",
-                "collapseAll": false,
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -155,12 +154,12 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 309.5,
-    "collapsed": true
+    "width": 309.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -172,7 +171,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "2f7fd60fd6fadd9f",
+  "active": "202ca7e22fd42ebf",
   "lastOpenFiles": [
     "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "lab-report.md",
