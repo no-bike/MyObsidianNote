@@ -73,3 +73,10 @@
 
 ### How to achieve good views?
 
+如图所示，1.我们首先引入因式分解函数 ![[Pasted image 20240726035817.png]]检测输入的信息分量。
+
+![[Pasted image 20240726040114.png]]
+
+
+![[Pasted image 20240726040001.png]]
+
