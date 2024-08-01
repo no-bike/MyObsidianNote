@@ -23,9 +23,11 @@
             "id": "3b568e60ab8253b7",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.6.7"
+                "file": "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
