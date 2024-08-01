@@ -18,8 +18,19 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "3b568e60ab8253b7",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.6.7"
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -146,7 +157,7 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "921732a46929163b",
+  "active": "3b568e60ab8253b7",
   "lastOpenFiles": [
     "Pasted image 20240726040114.png",
     "lab-report.md",
