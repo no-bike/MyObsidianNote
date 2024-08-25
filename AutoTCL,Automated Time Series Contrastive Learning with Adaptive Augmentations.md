@@ -102,6 +102,90 @@
 
 # 实验复现结果
 
+import warnings
+import json
+import argparse
+import numpy as np
+import matplotlib.pyplot as plt
+
+from infots import InfoTS as MetaInfoTS
+from utils import init_dl_program, dict2class
+import datautils
+
+warnings.filterwarnings("ignore")
+
+dataset = 'electricity.uni'
+
+with open(f'./configures/{dataset}.json') as f:
+    configs = json.load(f)
+
+#### 解析命令行参数
+parser = argparse.ArgumentParser()
+args = dict2class(**configs)
+
+#### 初始化设备
+device = init_dl_program(args.gpu, seed=args.seed, max_threads=args.max_threads)
+
+valid_dataset = datautils.load_forecast_csv(args.dataset, univar=True)
+data, train_slice, valid_slice, test_slice, scaler, pred_lens, n_covariate_cols = valid_dataset
+train_data = data[:, train_slice]
+
+#### 数据预处理
+if train_data.shape[0] == 1:
+    train_slice_number = int(train_data.shape[1] / args.max_train_length)
+    if train_slice_number < args.batch_size:
+        args.batch_size = train_slice_number
+else:
+    if train_data.shape[0] < args.batch_size:
+        args.batch_size = train_data.shape[0]
+
+##### 初始化模型
+model = AutoTCL(
+    batch_size=args.batch_size,
+    lr=args.lr,
+    meta_lr=args.meta_lr,
+    output_dims=args.repr_dims,
+    max_train_length=args.max_train_length,
+    input_dims=train_data.shape[-1],
+    device=device,
+    num_cls=args.batch_size,
+    aug_p1=args.aug_p1,
+    eval_every_epoch=20
+)
+
+#### 训练模型
+res = model.fit(
+    train_data,
+    task_type='forecasting',
+    meta_beta=args.meta_beta,
+    n_epochs=args.epochs,
+    n_iters=args.iters,
+    beta=args.beta,
+    verbose=False,
+    miverbose=True,
+    split_number=args.split_number,
+    supervised_meta=False,  # for forecasting, use unsupervised setting
+    valid_dataset=valid_dataset,
+    train_labels=None
+)
+
+mse, mae = res
+mse = np.array(mse)
+mae = np.array(mae)
+if len(mse) > 1 and len(mae) > 1:
+    mse = mse[:-1]
+    mae = mae[:-1]
+else:
+    print("mse 和 mae 的长度不足")
+
+## 绘制结果
+x = 20 * np.arange(len(mse))
+plt.plot(x, mse, label="mse@24")
+plt.plot(x, mae, label="mae@24")
+plt.legend()
+plt.show()
+
+
 进行了四个数据集的部分简单单变量预测
 
 1. ETTh1数据集
@@ -122,4 +206,5 @@
 由对比可看出，实验结果与论文中结果接近。
 
 # 总结
+
 
