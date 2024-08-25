@@ -73,3 +73,23 @@
 
 ### training algorithm
 
+
+
+
+
+# 实验复现结果
+
+进行了四个数据集的简单单变量预测
+
+1. ETTh1数据集
+![[Pasted image 20240825235313.png]]
+2. ETTh2数据集
+![[Pasted image 20240825235359.png]]
+3. ETTm1数据集
+![[Pasted image 20240825235428.png]]
+4.  electricity数据集
+![[Pasted image 20240825235509.png]]
+
+
+![[Pasted image 20240825235627.png]]
+由对比可看出，实验结果与论文中结果接近。
