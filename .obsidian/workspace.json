@@ -8,18 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "921732a46929163b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "3b568e60ab8253b7",
             "type": "leaf",
             "state": {
@@ -31,8 +19,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
