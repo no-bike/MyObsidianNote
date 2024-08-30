@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
+                "file": "Git_LearnNote/Learning basic operation.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
+                "file": "Git_LearnNote/Learning basic operation.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
+                "file": "Git_LearnNote/Learning basic operation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md"
+                "file": "Git_LearnNote/Learning basic operation.md"
               }
             }
           }
@@ -138,16 +138,17 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:打开快速切换": false,
-      "graph:查看关系图谱": false,
-      "canvas:新建白板": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
-      "command-palette:打开命令面板": false
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
     }
   },
   "active": "3b568e60ab8253b7",
   "lastOpenFiles": [
+    "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
     "Pasted image 20240826000828.png",
     "Pasted image 20240826000312.png",
     "Pasted image 20240826000306.png",
@@ -158,12 +159,10 @@
     "Pasted image 20240825235509.png",
     "Pasted image 20240825235428.png",
     "Pasted image 20240825235359.png",
-    "Pasted image 20240825235313.png",
     "Database_System/5.Index Structure.md",
     "Database_System/6.Query Execution.md",
     "Database_System/3.SQL.md",
     "Database_System/2.Relational_Database.md",
-    "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
     "Database_System/1.Outline.md",
     "csapp/Assembler language Introdution.md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
