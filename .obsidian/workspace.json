@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
+                "file": "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
+                "file": "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
+                "file": "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md"
+                "file": "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md"
               }
             }
           }
@@ -148,15 +148,17 @@
   },
   "active": "3b568e60ab8253b7",
   "lastOpenFiles": [
-    "Rucbase_lab/docs/Rucbase项目结构.pdf",
-    "Rucbase_lab/docs/Rucbase使用文档.md",
-    "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
-    "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
-    "Rucbase_lab/docs/Rucbase开发文档.md",
-    "Rucbase_lab/docs/Rucbase环境配置文档.md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
     "Rucbase_lab/docs/Rucbase-Lab4[并发控制实验文档].md",
+    "Rucbase_lab/docs/框架图.pdf",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
+    "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
+    "Rucbase_lab/docs/Rucbase开发文档.md",
+    "Rucbase_lab/docs/Rucbase使用文档.md",
+    "Rucbase_lab/docs/Rucbase项目结构.pdf",
+    "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
+    "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
+    "Rucbase_lab/docs/Rucbase环境配置文档.md",
     "Git_LearnNote/Learning basic operation.md",
     "Pasted image 20240826000828.png",
     "Pasted image 20240826000312.png",
@@ -175,12 +177,10 @@
     "Database_System/1.Outline.md",
     "csapp/Assembler language Introdution.md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
-    "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "lab-report.md",
     "README.md",
     "Database_System/4.Storage_Management.md",
     "Database_System/homework/quiz1.md",
-    "Rucbase_lab/docs/框架图.pdf",
     "Git_LearnNote",
     "MyObsidianNote",
     "未命名.canvas",
