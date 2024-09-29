@@ -32,3 +32,6 @@ whisper "path/to/your/audiofile.mp3" --model small --output_format srt --output_
 
 ### 使用结果
 
+![[Pasted image 20240929211056.png]]
+
+![[Pasted image 20240929211159.png]]
