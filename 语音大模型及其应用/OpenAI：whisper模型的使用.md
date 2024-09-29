@@ -32,7 +32,7 @@ whisper "path/to/your/audiofile.mp3" --model small --output_format srt --output_
 
 ### 使用结果
 
-因为使用的是歌词吐字不是特别清晰
+因为使用的是歌曲，吐字不是特别清晰。（也可能和使用的是small模型有关）
 但是还是较为精准。
 
 ![[Pasted image 20240929211056.png]]
