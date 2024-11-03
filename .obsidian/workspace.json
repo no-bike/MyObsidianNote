@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "os/read1.md",
+                "file": "os/read2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "read1"
+              "title": "read2"
             }
           }
         ],
@@ -154,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "os/read1.md"
+                "file": "os/read2.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of read1"
+              "title": "Outline of read2"
             }
           }
         ],
@@ -180,6 +180,7 @@
   "active": "ebd1476b9453d1de",
   "lastOpenFiles": [
     "os/read1.md",
+    "os/read2.md",
     "os",
     "语音大模型及其应用/OpenAI：whisper模型的使用.md",
     "Pasted image 20240929211159.png",
@@ -225,7 +226,6 @@
     "csapp",
     "C++",
     "Welcome.md",
-    "二分.md",
     "Database_System"
   ]
 }
