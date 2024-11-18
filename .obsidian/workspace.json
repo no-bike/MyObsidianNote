@@ -193,9 +193,15 @@
   },
   "active": "e296cf30b99748b7",
   "lastOpenFiles": [
+    "报告/picture/4.png",
+    "报告/大数据高级数据结构报告.md",
+    "报告/picture/3.png",
+    "报告/picture/2.png",
+    "报告/picture/2.png",
+    "报告/picture/1.png",
+    "报告/picture",
     "报告",
     "os/read4.md",
-    "报告/大数据高级数据结构报告.md",
     "os/read3.md",
     "os/read2.md",
     "os/read1.md",
@@ -207,7 +213,6 @@
     "picture/Pasted image 20240825235359.png",
     "picture/Pasted image 20240726035817.png",
     "picture/Pasted image 20240726035842.png",
-    "picture/Pasted image 20240725233817.png",
     "README.md",
     "Rucbase_lab/docs/Rucbase使用文档.md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
@@ -223,10 +228,6 @@
     "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
     "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
     "Git_LearnNote/Learning basic operation.md",
-    "picture/Pasted image 20240826000828.png",
-    "picture/Pasted image 20240826000312.png",
-    "picture/Pasted image 20240826000306.png",
-    "picture/Pasted image 20240826000234.png",
     "Database_System/5.Index Structure.md",
     "Database_System/6.Query Execution.md",
     "Database_System/2.Relational_Database.md",
@@ -238,8 +239,6 @@
     "未命名.canvas",
     "picture",
     "未命名 1.canvas",
-    "csapp",
-    "C++",
-    "Database_System"
+    "csapp"
   ]
 }
