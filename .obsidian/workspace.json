@@ -34,9 +34,23 @@
               "icon": "lucide-file",
               "title": "read4"
             }
+          },
+          {
+            "id": "e296cf30b99748b7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "大数据高级数据结构报告.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "大数据高级数据结构报告"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -154,10 +168,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "os/read4.md"
+                "file": "大数据高级数据结构报告.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of read4"
+              "title": "Outline of 大数据高级数据结构报告"
             }
           }
         ],
@@ -177,10 +191,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "ebd1476b9453d1de",
+  "active": "e296cf30b99748b7",
   "lastOpenFiles": [
-    "os/read3.md",
     "os/read4.md",
+    "大数据高级数据结构报告.md",
+    "os/read3.md",
     "os/read2.md",
     "os/read1.md",
     "os",
@@ -218,7 +233,6 @@
     "csapp/Assembler language Introdution.md",
     "lab-report.md",
     "Database_System/4.Storage_Management.md",
-    "Database_System/homework/quiz1.md",
     "Git_LearnNote",
     "MyObsidianNote",
     "未命名.canvas",
