@@ -41,7 +41,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "大数据高级数据结构报告.md",
+                "file": "报告/大数据高级数据结构报告.md",
                 "mode": "source",
                 "source": false
               },
@@ -168,7 +168,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "大数据高级数据结构报告.md"
+                "file": "报告/大数据高级数据结构报告.md"
               },
               "icon": "lucide-list",
               "title": "Outline of 大数据高级数据结构报告"
@@ -193,8 +193,9 @@
   },
   "active": "e296cf30b99748b7",
   "lastOpenFiles": [
+    "报告",
     "os/read4.md",
-    "大数据高级数据结构报告.md",
+    "报告/大数据高级数据结构报告.md",
     "os/read3.md",
     "os/read2.md",
     "os/read1.md",
@@ -232,7 +233,6 @@
     "Database_System/1.Outline.md",
     "csapp/Assembler language Introdution.md",
     "lab-report.md",
-    "Database_System/4.Storage_Management.md",
     "Git_LearnNote",
     "MyObsidianNote",
     "未命名.canvas",
