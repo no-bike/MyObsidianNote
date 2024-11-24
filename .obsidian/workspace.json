@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "006-/006/006_lab01.md",
+                "file": "006-/006-曲本磊-lab01/006_lab01.md",
                 "mode": "source",
                 "source": false
               },
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "006-/006/006_lab01.md"
+                "file": "006-/006-曲本磊-lab01/006_lab01.md"
               },
               "icon": "lucide-list",
               "title": "Outline of 006_lab01"
@@ -162,18 +162,19 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e296cf30b99748b7",
+  "active": "d4fd3723d911d91d",
   "lastOpenFiles": [
+    "006-/006-曲本磊-lab01.zip",
     "README.md",
     "os/read4.md",
-    "006-/006/006_lab01.md",
-    "006-/006/picture/p2.png",
-    "006-/006/picture/p1.png",
-    "006-/006/picture/p3.png",
-    "006-/006/picture/p4.png",
+    "006-/006-曲本磊-lab01/006_lab01.md",
+    "006-/006-曲本磊-lab01/picture/p2.png",
+    "006-/006-曲本磊-lab01/picture/p1.png",
+    "006-/006-曲本磊-lab01/picture/p3.png",
+    "006-/006-曲本磊-lab01/picture/p4.png",
     "报告/大数据高级数据结构报告.md",
-    "006-/006/picture",
-    "006-/006",
+    "006-/006-曲本磊-lab01/picture",
+    "006-/006-曲本磊-lab01",
     "006-/Untitled.md",
     "006-",
     "报告/picture/4.png",
