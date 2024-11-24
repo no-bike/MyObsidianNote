@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "报告/大数据高级数据结构报告.md",
+                "file": "006-/006/006_lab01.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "大数据高级数据结构报告"
+              "title": "006_lab01"
             }
           }
         ],
@@ -168,10 +168,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "报告/大数据高级数据结构报告.md"
+                "file": "006-/006/006_lab01.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 大数据高级数据结构报告"
+              "title": "Outline of 006_lab01"
             }
           }
         ],
@@ -193,8 +193,13 @@
   },
   "active": "e296cf30b99748b7",
   "lastOpenFiles": [
-    "报告/picture/4.png",
     "报告/大数据高级数据结构报告.md",
+    "006-/006/006_lab01.md",
+    "006-/006/picture",
+    "006-/006",
+    "006-/Untitled.md",
+    "006-",
+    "报告/picture/4.png",
     "报告/picture/3.png",
     "报告/picture/2.png",
     "报告/picture/2.png",
@@ -233,12 +238,8 @@
     "Database_System/2.Relational_Database.md",
     "Database_System/1.Outline.md",
     "csapp/Assembler language Introdution.md",
-    "lab-report.md",
     "Git_LearnNote",
-    "MyObsidianNote",
     "未命名.canvas",
-    "picture",
-    "未命名 1.canvas",
-    "csapp"
+    "未命名 1.canvas"
   ]
 }
