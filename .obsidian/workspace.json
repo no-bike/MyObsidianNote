@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "006_lab01"
             }
+          },
+          {
+            "id": "1cc22e190fa0aeaa",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.7.7"
+              },
+              "icon": "lucide-file",
+              "title": "Release Notes 1.7.7"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -138,11 +151,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "006-/006-曲本磊-lab01/006_lab01.md"
-              },
+              "state": {},
               "icon": "lucide-list",
-              "title": "Outline of 006_lab01"
+              "title": "Outline"
             }
           }
         ],
@@ -162,7 +173,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d4fd3723d911d91d",
+  "active": "1cc22e190fa0aeaa",
   "lastOpenFiles": [
     "006-/006-曲本磊-lab01.zip",
     "README.md",
