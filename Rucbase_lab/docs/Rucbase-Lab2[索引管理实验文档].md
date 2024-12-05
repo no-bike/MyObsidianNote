@@ -391,11 +391,11 @@ B+树删除的整体流程如下图：
 
 本实验满分为100分，测试文件对应的任务点及其分值如下：
 
-| 任务点                         | 测试文件                                       | 分值 |
-| ------------------------------ | --------------------------------------------  | ---- |
-| 任务1和任务2  B+树的查找和插入 | src/test/index/b_plus_tree_insert_test.cpp      | 30   |
-| 任务3 B+树的删除               | src/test/index/b_plus_tree_delete_test.cpp     | 40   |
-| 任务4 B+树的并发控制           | src/test/index/b_plus_tree_concurrent_test.cpp  | 30   |
+| 任务点                | 测试文件                                           | 分值  |
+| ------------------ | ---------------------------------------------- | --- |
+| 任务1和任务2  B+树的查找和插入 | src/test/index/b_plus_tree_insert_test.cpp     | 30  |
+| 任务3 B+树的删除         | src/test/index/b_plus_tree_delete_test.cpp     | 40  |
+| 任务4 B+树的并发控制       | src/test/index/b_plus_tree_concurrent_test.cpp | 30  |
 
 编译生成可执行文件进行测试：
 
