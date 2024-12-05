@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
+                "file": "Rucbase_lab/docs/Rucbase-Lab4[并发控制实验文档].md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Rucbase-Lab3[查询执行实验文档]"
+              "title": "Rucbase-Lab4[并发控制实验文档]"
             }
           },
           {
@@ -35,7 +35,8 @@
               "title": "实验报告模板"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -153,10 +154,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md"
+                "file": "实验报告模板.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Rucbase-Lab3[查询执行实验文档]"
+              "title": "Outline of 实验报告模板"
             }
           }
         ],
@@ -176,13 +177,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e296cf30b99748b7",
+  "active": "cf20ef71dbde32eb",
   "lastOpenFiles": [
-    "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
+    "Pasted image 20241205211406.png",
+    "Pasted image 20241205211349.png",
     "Rucbase_lab/docs/Rucbase-Lab4[并发控制实验文档].md",
-    "实验报告模板.md",
-    "Pasted image 20241205210541.png",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
+    "实验报告模板.md",
+    "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
+    "Pasted image 20241205210541.png",
     "Pasted image 20241205210132.png",
     "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "Pasted image 20241205205830.png",
@@ -201,7 +204,6 @@
     "README.md",
     "os/read4.md",
     "006-/006-曲本磊-lab01/picture/p2.png",
-    "006-/006-曲本磊-lab01/picture/p1.png",
     "006-/006-曲本磊-lab01/picture",
     "006-/006-曲本磊-lab01",
     "006-/Untitled.md",
