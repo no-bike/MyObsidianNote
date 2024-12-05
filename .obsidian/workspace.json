@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "lab-report.md",
+                "file": "实验报告模板.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "lab-report"
+              "title": "实验报告模板"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "lab-report.md"
+                "file": "实验报告模板.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of lab-report"
+              "title": "Outline of 实验报告模板"
             }
           }
         ],
@@ -164,6 +164,7 @@
   },
   "active": "e296cf30b99748b7",
   "lastOpenFiles": [
+    "lab-report.md",
     "Database_System/homework/quiz1.md",
     "报告/大数据高级数据结构报告.md",
     "实验报告模板.md",
@@ -209,7 +210,6 @@
     "Git_LearnNote/Learning basic operation.md",
     "Database_System/5.Index Structure.md",
     "Database_System/6.Query Execution.md",
-    "Database_System/2.Relational_Database.md",
     "未命名.canvas",
     "未命名 1.canvas"
   ]
