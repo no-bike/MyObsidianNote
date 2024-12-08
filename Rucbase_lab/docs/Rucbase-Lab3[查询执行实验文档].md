@@ -37,8 +37,7 @@ Rucbase查询执行模块采用的是火山模型(Volcano Model),你可以通过
 
 ## 实验一：元数据管理和DDL语句 (25分)
 
-在本实验中，你需要完成src/system/sm_manager.cpp中的接口，使得系统能够支持DDL语句，具体包括create table、drop table、create index和drop index语句。
-
+在本实验中，你需要
 相关代码位于`src/system/sm_manager.h`和`src/system/sm_manager.cpp`文件中。在`src/system/sm_manager.cpp`文件中，给出了`create_table`、`create_db`和`drop_db`函数的实现示例，你需要参照这些函数实现剩余的空缺函数。
 
 在`SmManager`类中，你需要实现的函数接口如下：
