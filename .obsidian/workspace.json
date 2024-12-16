@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "070_lab03/reports.md",
+                "file": "bigDataAnalysisExperiment/实验3 图数据库.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "reports"
+              "title": "实验3 图数据库"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "070_lab03/reports.md"
+                "file": "bigDataAnalysisExperiment/实验3 图数据库.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of reports"
+              "title": "Outline of 实验3 图数据库"
             }
           }
         ],
@@ -164,6 +164,9 @@
   },
   "active": "84ba99bd1e21da71",
   "lastOpenFiles": [
+    "070_lab03/reports.md",
+    "bigDataAnalysisExperiment/实验3 图数据库.md",
+    "bigDataAnalysisExperiment",
     "070_lab02/reports.md",
     "070_lab03/images/img4.png",
     "070_lab03/images/img3.png",
@@ -174,7 +177,6 @@
     "070_lab03/code/build.c",
     "070_lab03/code/bootsect.s",
     "070_lab03/code",
-    "070_lab03/reports.md",
     "070_lab03",
     "os/read3.md",
     "070_lab02/images/img9.png",
@@ -197,7 +199,6 @@
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
     "Rucbase_lab/docs/Rucbase学生实验操作说明示例.md",
-    "Rucbase_lab/docs/Rucbase项目结构.pdf",
     "Rucbase_lab/docs/Rucbase使用文档.md",
     "Rucbase_lab/docs/Rucbase开发文档.md",
     "Rucbase_lab/docs/Rucbase环境配置文档.md",
