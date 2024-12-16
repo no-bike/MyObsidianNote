@@ -20,8 +20,59 @@
               "icon": "lucide-file",
               "title": "实验3 图数据库"
             }
+          },
+          {
+            "id": "f90adbf02c42b6e7",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "picture/Pasted image 20240929211056.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20240929211056"
+            }
+          },
+          {
+            "id": "bca3092884566cfe",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "picture/Pasted image 20240929211159.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20240929211159"
+            }
+          },
+          {
+            "id": "b9801567bc4705e5",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "picture/Pasted image 20241205205355.png"
+              },
+              "icon": "lucide-image",
+              "title": "Pasted image 20241205205355"
+            }
+          },
+          {
+            "id": "fe2e3c2dac88bea5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "bigDataAnalysisExperiment/实验3 图数据库.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "实验3 图数据库"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -162,16 +213,23 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "84ba99bd1e21da71",
+  "active": "fe2e3c2dac88bea5",
   "lastOpenFiles": [
-    "070_lab03/reports.md",
+    "Pasted image 20241216212934.png",
+    "Pasted image 20241216212918.png",
+    "Pasted image 20241216212852.png",
+    "Pasted image 20241216212836.png",
+    "Pasted image 20241216212819.png",
+    "Pasted image 20241216212740.png",
+    "Pasted image 20241216212729.png",
+    "Pasted image 20241216212656.png",
+    "Pasted image 20241216212638.png",
+    "Pasted image 20241216212601.png",
+    "Pasted image 20241216212544.png",
     "bigDataAnalysisExperiment/实验3 图数据库.md",
+    "070_lab03/reports.md",
     "bigDataAnalysisExperiment",
     "070_lab02/reports.md",
-    "070_lab03/images/img4.png",
-    "070_lab03/images/img3.png",
-    "070_lab03/images/img2.png",
-    "070_lab03/images/img1.png",
     "070_lab03/images",
     "070_lab03/code/setup.s",
     "070_lab03/code/build.c",
@@ -179,12 +237,6 @@
     "070_lab03/code",
     "070_lab03",
     "os/read3.md",
-    "070_lab02/images/img9.png",
-    "070_lab02/images/img8.png",
-    "070_lab02/images/img6.png",
-    "070_lab02/images/img7.png",
-    "070_lab02/images/img5.png",
-    "070_lab02/images/img4.png",
     "070_lab02/images",
     "070_lab02",
     "os/read2.md",
@@ -209,7 +261,6 @@
     "os/read4.md",
     "006-/Untitled.md",
     "语音大模型及其应用/OpenAI：whisper模型的使用.md",
-    "Database_System/3.SQL.md",
     "未命名.canvas",
     "未命名 1.canvas"
   ]
