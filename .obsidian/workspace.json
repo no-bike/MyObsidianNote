@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "070_lab02/reports.md",
+                "file": "070_lab03/reports.md",
                 "mode": "source",
                 "source": false
               },
@@ -139,7 +139,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "070_lab02/reports.md"
+                "file": "070_lab03/reports.md"
               },
               "icon": "lucide-list",
               "title": "Outline of reports"
@@ -164,6 +164,18 @@
   },
   "active": "84ba99bd1e21da71",
   "lastOpenFiles": [
+    "070_lab02/reports.md",
+    "070_lab03/images/img4.png",
+    "070_lab03/images/img3.png",
+    "070_lab03/images/img2.png",
+    "070_lab03/images/img1.png",
+    "070_lab03/images",
+    "070_lab03/code/setup.s",
+    "070_lab03/code/build.c",
+    "070_lab03/code/bootsect.s",
+    "070_lab03/code",
+    "070_lab03/reports.md",
+    "070_lab03",
     "os/read3.md",
     "070_lab02/images/img9.png",
     "070_lab02/images/img8.png",
@@ -171,11 +183,6 @@
     "070_lab02/images/img7.png",
     "070_lab02/images/img5.png",
     "070_lab02/images/img4.png",
-    "070_lab02/images/img3.png",
-    "070_lab02/images/img2.png",
-    "070_lab02/images/img12.png",
-    "070_lab02/images/img11.png",
-    "070_lab02/reports.md",
     "070_lab02/images",
     "070_lab02",
     "os/read2.md",
@@ -197,18 +204,11 @@
     "Database_System/homework/quiz1.md",
     "报告/大数据高级数据结构报告.md",
     "006-/006-曲本磊-lab01/006_lab01.md",
-    "006-/006-曲本磊-lab01.zip",
     "README.md",
     "os/read4.md",
-    "006-/006-曲本磊-lab01/picture",
-    "006-/006-曲本磊-lab01",
     "006-/Untitled.md",
-    "006-",
-    "报告/picture",
-    "报告",
     "语音大模型及其应用/OpenAI：whisper模型的使用.md",
     "Database_System/3.SQL.md",
-    "Git_LearnNote/Learning basic operation.md",
     "未命名.canvas",
     "未命名 1.canvas"
   ]
