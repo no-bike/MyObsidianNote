@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "实验报告.md",
+                "file": "报告/大数据高级数据结构报告.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "实验报告"
+              "title": "大数据高级数据结构报告"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "实验报告.md"
+                "file": "报告/大数据高级数据结构报告.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 实验报告"
+              "title": "Outline of 大数据高级数据结构报告"
             }
           }
         ],
@@ -164,6 +164,9 @@
   },
   "active": "84ba99bd1e21da71",
   "lastOpenFiles": [
+    "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
+    "Database_System/lab-report.md",
+    "Database_System/实验报告.md",
     "bigDataAnalysisExperiment/实验3 图数据库.md",
     "picture/Pasted image 20240929211056.png",
     "picture/Pasted image 20240929211159.png",
@@ -192,9 +195,6 @@
     "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
     "Rucbase_lab/docs/框架图.pdf",
-    "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
-    "实验报告.md",
-    "lab-report.md",
     "Rucbase_lab/docs/Rucbase-Lab4[并发控制实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
