@@ -11,12 +11,14 @@
             "id": "84ba99bd1e21da71",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "070_lab03/images/img3.png"
+                "file": "070_lab03/005-2022112479-曲本磊.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "img3"
+              "icon": "lucide-file",
+              "title": "005-2022112479-曲本磊"
             }
           }
         ]
@@ -137,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "070_lab03/images/img3.png"
+                "file": "070_lab03/005-2022112479-曲本磊.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of img3"
+              "title": "Outline of 005-2022112479-曲本磊"
             }
           }
         ],
@@ -162,11 +164,13 @@
   },
   "active": "84ba99bd1e21da71",
   "lastOpenFiles": [
+    "179287c3a76c9915267ce2add6446066.png",
+    "070_lab03/reports.md",
+    "070_lab03/005-2022112479-曲本磊.md",
+    "Pasted image 20241223155646.png",
+    "070_lab03/images/img3.png",
     "070_lab03/images/img2.png",
     "070_lab03/images/img1.png",
-    "070_lab03/005-2022112479-曲本磊.md",
-    "070_lab03/reports.md",
-    "070_lab03/images/img3.png",
     "070_lab03/images/img4.png",
     "报告/大数据高级数据结构报告.md",
     "Pasted image 20241217203146.png",
@@ -174,7 +178,6 @@
     "Pasted image 20241217194007.png",
     "Pasted image 20241217193903.png",
     "Pasted image 20241217193830.png",
-    "Pasted image 20241217191242.png",
     "Untitled.canvas",
     "Untitled 1.canvas",
     "Untitled 2.canvas",
