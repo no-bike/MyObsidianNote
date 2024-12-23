@@ -11,14 +11,12 @@
             "id": "84ba99bd1e21da71",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "报告/大数据高级数据结构报告.md",
-                "mode": "source",
-                "source": false
+                "file": "070_lab03/images/img3.png"
               },
-              "icon": "lucide-file",
-              "title": "大数据高级数据结构报告"
+              "icon": "lucide-image",
+              "title": "img3"
             }
           }
         ]
@@ -139,10 +137,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "报告/大数据高级数据结构报告.md"
+                "file": "070_lab03/images/img3.png"
               },
               "icon": "lucide-list",
-              "title": "Outline of 大数据高级数据结构报告"
+              "title": "Outline of img3"
             }
           }
         ],
@@ -164,6 +162,11 @@
   },
   "active": "84ba99bd1e21da71",
   "lastOpenFiles": [
+    "070_lab03/images/img4.png",
+    "070_lab03/images/img3.png",
+    "070_lab03/images/img2.png",
+    "070_lab03/images/img1.png",
+    "报告/大数据高级数据结构报告.md",
     "Pasted image 20241217203146.png",
     "Pasted image 20241217203040.png",
     "Pasted image 20241217194007.png",
@@ -175,17 +178,12 @@
     "Untitled 2.canvas",
     "Untitled 3.canvas",
     "Untitled 4.canvas",
-    "报告/大数据高级数据结构报告.md",
     "2024-12-17.md",
     "报告/picture/Pasted image 20241217181036.png",
-    "报告/picture/Pasted image 20241217174700.png",
     "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
     "Database_System/lab-report.md",
     "Database_System/实验报告.md",
     "bigDataAnalysisExperiment/实验3 图数据库.md",
-    "picture/Pasted image 20240929211056.png",
-    "picture/Pasted image 20240929211159.png",
-    "picture/Pasted image 20241205205355.png",
     "070_lab03/reports.md",
     "bigDataAnalysisExperiment",
     "070_lab02/reports.md",
