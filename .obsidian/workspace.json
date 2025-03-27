@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Untitled/Untitled.md",
+                "file": "Untitled/U.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Untitled"
+              "title": "U"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Untitled/Untitled.md"
+                "file": "Untitled/U.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Untitled"
+              "title": "Outline of U"
             }
           }
         ],
@@ -165,7 +165,7 @@
   "active": "309956a9e9cd1719",
   "lastOpenFiles": [
     "005-2022112479-曲本磊.md",
-    "Untitled/Untitled.md",
+    "Untitled/U.md",
     "Untitled",
     "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
     "README.md",
