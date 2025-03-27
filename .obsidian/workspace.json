@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "005-2022112479-曲本磊.md",
+                "file": "Untitled/Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "005-2022112479-曲本磊"
+              "title": "Untitled"
             }
           }
         ]
@@ -139,10 +139,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "005-2022112479-曲本磊.md"
+                "file": "Untitled/Untitled.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of 005-2022112479-曲本磊"
+              "title": "Outline of Untitled"
             }
           }
         ],
@@ -162,8 +162,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d4fd3723d911d91d",
+  "active": "309956a9e9cd1719",
   "lastOpenFiles": [
+    "005-2022112479-曲本磊.md",
+    "Untitled/Untitled.md",
     "Untitled",
     "AutoTCL,Automated Time Series Contrastive Learning with Adaptive Augmentations.md",
     "README.md",
@@ -175,7 +177,6 @@
     "os/read3.md",
     "os/read2.md",
     "picture/179287c3a76c9915267ce2add6446066.png",
-    "005-2022112479-曲本磊.md",
     "images/img14.png",
     "images/img13.png",
     "images/img12.png",
@@ -206,7 +207,6 @@
     "070_lab03/code",
     "070_lab03",
     "070_lab02/images",
-    "070_lab02",
     "os/read1.md",
     "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
