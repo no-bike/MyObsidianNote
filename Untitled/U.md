@@ -33,48 +33,155 @@ Spark作为当今大数据领域最热门的分布式计算框架之一，凭借
 
 ---
 
-### **第二部分：Spark核心模块**  
-
-**1. Spark Core**  
-- 核心组件，提供任务调度、内存管理、容错机制等基础功能。  
-- 基于RDD（弹性分布式数据集）实现高效分布式计算。  
-
-**2. Spark SQL**  
-- 处理结构化数据，支持SQL查询和DataFrame API。  
-- 兼容Hive语法，可直接查询Hive数据仓库。  
-
-**3. Spark Streaming**  
-- 实时流处理模块，将流数据切分为小批次处理。  
-- 支持高吞吐量和容错，可与Kafka、Flume等数据源集成。  
-
-**4. Spark运行架构**  
-- 集群资源管理器（如YARN）负责资源分配，Driver Program负责任务调度。  
-- 支持独立集群、YARN、云环境等多种运行模式。  
+**讲稿：Spark核心原理与应用（详细版）**
 
 ---
 
-### **第三部分：Spark核心组件**  
+### **第二部分：Spark核心模块（详细讲解）**
 
-**1. RDD（弹性分布式数据集）**  
-- 只读分区集合，支持map、filter等转换操作。  
-- 通过Lineage机制实现容错，避免数据丢失。  
+**1. Spark Core**
+*（PPT对应Spark Core页面）*
 
-**2. 调度器（DAGScheduler & TaskScheduler）**  
-- DAGScheduler将作业拆分为DAG图，TaskScheduler负责任务物理调度。  
-- 支持FIFO和FAIR两种调度算法，优化资源利用率。  
+Spark Core是整个Spark框架的基石，它提供了三大核心功能：
+- **分布式任务调度**：通过DAG调度器将任务分解为多个Stage，优化执行顺序
+- **内存管理**：采用统一的内存池设计，同时服务于计算和缓存需求
+- **容错机制**：基于RDD的Lineage（血统）机制实现数据恢复
 
-**3. 存储模块（Storage）**  
-- 数据可存储在内存或磁盘，支持缓存机制（如persist()）。  
-- 通过BlockManager统一管理数据读写。  
+**关键技术细节**：
+- RDD的五大特性：
+  1. 分区列表（Partitions）
+  2. 计算函数（Compute Function）
+  3. 依赖关系（Dependencies）
+  4. 分区器（Partitioner）
+  5. 首选位置（Preferred Locations）
+- 任务执行流程示例：
+  1. 创建RDD → 2. 转换操作 → 3. 构建DAG → 4. 划分Stage → 5. 调度Task
 
-**4. Shuffle过程**  
-- 分为Shuffle Write和Shuffle Read两个阶段。  
-- Spark优化了Shuffle性能，支持Hash-based和Sort-based两种方式。  
+**2. Spark SQL**
+*（PPT对应Spark SQL页面）*
+
+架构组成：
+```
+Spark SQL → Catalyst优化器 → Tungsten执行引擎
+```
+核心优化技术：
+- **Catalyst优化器**工作流程：
+  1. 解析SQL生成逻辑计划
+  2. 应用规则优化（谓词下推/列裁剪等）
+  3. 生成物理计划
+  4. 代码生成（Whole-stage Codegen）
+- **Tungsten引擎**的三大改进：
+  - 内存管理（二进制格式）
+  - 缓存感知计算
+  - 代码生成
+
+**3. Spark Streaming**
+*（PPT对应Spark Streaming页面）*
+
+微批处理架构：
+```
+实时数据流 → 划分小批次（如1秒）→ 按批处理 → 输出结果
+```
+关键机制：
+- **检查点机制**：定期保存状态到HDFS
+- **背压机制**：动态调整接收速率
+- **Exactly-once语义**实现原理：
+  1. 幂等写入
+  2. 事务性更新
+  3. 偏移量跟踪
+
+**4. 运行架构**
+*（PPT对应运行架构页面）*
+
+集群模式对比：
+| 模式         | 资源管理   | 适用场景              | 特点                     |
+|--------------|------------|-----------------------|--------------------------|
+| 独立集群     | Spark自带  | 测试/小规模生产       | 部署简单                 |
+| YARN模式     | Hadoop YARN| 企业级部署            | 资源隔离性好             |
+| Kubernetes   | K8s        | 云原生环境            | 弹性伸缩                 |
+
+---
+
+### **第三部分：Spark核心组件（深度解析）**
+
+**1. RDD组件**
+*（PPT对应RDD页面）*
+
+**依赖关系类型**：
+- 窄依赖（Narrow Dependency）：
+  - 1个父RDD分区 → 1个子RDD分区
+  - 例如map、filter操作
+- 宽依赖（Wide Dependency）：
+  - 1个父RDD分区 → 多个子RDD分区
+  - 例如groupByKey、reduceByKey操作
+
+**持久化策略对比**：
+| 存储级别          | 内存 | 磁盘 | 反序列化 | 说明                     |
+|-------------------|------|------|----------|--------------------------|
+| MEMORY_ONLY       | ✓    | ✗    | ✓        | 默认级别                 |
+| MEMORY_AND_DISK   | ✓    | ✓    | ✓        | 内存不足时存磁盘         |
+| MEMORY_ONLY_SER   | ✓    | ✗    | ✗        | 序列化存储节省空间       |
+
+**2. 调度系统**
+*（PPT对应Scheduler页面）*
+
+**DAGScheduler工作流程**：
+1. 接收Job提交
+2. 根据RDD依赖划分Stage
+3. 提交TaskSet给TaskScheduler
+4. 处理失败任务重试
+
+**任务调度优化**：
+- 数据本地性级别：
+  1. PROCESS_LOCAL → 2. NODE_LOCAL → 3. RACK_LOCAL
+- 推测执行（Speculative Execution）机制：
+  当检测到慢任务时，启动备份任务
+
+**3. 存储体系**
+*（PPT对应Storage页面）*
+
+内存管理架构：
+```
+Execution Memory（执行内存）
+↓
+Storage Memory（存储内存）
+↓
+Unified Memory Pool（统一内存池）
+```
+缓存淘汰策略：
+- LRU（最近最少使用）
+- 按RDD存储级别优先级
+
+**4. Shuffle机制**
+*（PPT对应Shuffle页面）*
+
+**Sort-Shuffle演进**：
+1. 原始版本：每个Task产生N个文件（N=reduce任务数）
+2. 优化版本：合并文件索引（生成一个数据文件+索引文件）
+3. Tungsten版本：堆外内存优化
+
+**关键配置参数**：
+```python
+spark.shuffle.file.buffer=32KB  # 写缓冲区大小
+spark.reducer.maxSizeInFlight=48MB  # 读缓冲区大小
+spark.shuffle.io.maxRetries=3  # 最大重试次数
+```
+
+---
+
+**总结过渡**  
+通过以上详细解析，我们可以看到Spark在核心模块和组件设计上的精妙之处。正是这些创新设计使得Spark能够：
+1. 比Hadoop MapReduce快100倍
+2. 支持复杂的工作流
+3. 实现亚秒级的延迟
+
+接下来我们将继续探讨Spark的高级应用库...
 
 ---
 
 ### **第四部分：Spark应用库**  
 
+（略讲，一个小标题一张）
 **1. Spark SQL**  
 - 支持SQL查询和Catalyst优化器，提升查询性能。  
 - 与Spark其他组件深度集成，实现一站式数据处理。   
