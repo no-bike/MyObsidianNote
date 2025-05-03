@@ -36,17 +36,17 @@
             }
           },
           {
-            "id": "fb7cf5846f8ef8ef",
+            "id": "53fe8ac503773556",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "006-/最小二乘法实现uv分解补充说明.md",
+                "file": "高级数据库系统实验报告.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "最小二乘法实现uv分解补充说明"
+              "title": "高级数据库系统实验报告"
             }
           }
         ],
@@ -169,13 +169,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "006-/最小二乘法实现uv分解补充说明.md",
+                "file": "高级数据库系统实验报告.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 最小二乘法实现uv分解补充说明"
+              "title": "Outline of 高级数据库系统实验报告"
             }
           }
         ],
@@ -195,13 +195,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fb7cf5846f8ef8ef",
+  "active": "53fe8ac503773556",
   "lastOpenFiles": [
-    "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
+    "Git_LearnNote/Learning basic operation.md",
+    "高级数据库系统实验报告.md",
     "006-/最小二乘法实现uv分解补充说明.md",
+    "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
     "Rucbase_lab/docs/框架图.pdf",
     "README.md",
-    "Git_LearnNote/Learning basic operation.md",
     "Untitled/U.md",
     "Untitled/讲稿原理（可修改）.md",
     "Pasted image 20250327135026.png",
@@ -247,7 +248,6 @@
     "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab4[并发控制实验文档].md",
     "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验文档].md",
-    "Rucbase_lab/docs/Rucbase-Lab3[查询执行实验指导].md",
     "未命名.canvas",
     "未命名 1.canvas"
   ]
