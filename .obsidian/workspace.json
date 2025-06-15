@@ -53,14 +53,12 @@
             "id": "7fe9fe690a916689",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "2022112479-曲本磊-创新认知.md",
-                "mode": "source",
-                "source": false
+                "file": "Pasted image 20250518134108.png"
               },
-              "icon": "lucide-file",
-              "title": "2022112479-曲本磊-创新认知"
+              "icon": "lucide-image",
+              "title": "Pasted image 20250518134108"
             }
           }
         ],
@@ -183,13 +181,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "2022112479-曲本磊-创新认知.md",
+                "file": "Pasted image 20250518134108.png",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2022112479-曲本磊-创新认知"
+              "title": "Outline of Pasted image 20250518134108"
             }
           }
         ],
@@ -211,18 +209,20 @@
   },
   "active": "7fe9fe690a916689",
   "lastOpenFiles": [
-    "高级数据库系统实验报告.md",
+    "Pasted image 20250503214616.png",
+    "Pasted image 20250503214409.png",
+    "Pasted image 20250503214303.png",
+    "Pasted image 20250503214223.png",
+    "Pasted image 20250327135026.png",
+    "2022112479-曲本磊-创新认知 1.md",
     "2022112479-曲本磊-创新认知.md",
+    "高级数据库系统实验报告.md",
     "Pasted image 20250518134211.png",
     "Pasted image 20250518134159.png",
     "Pasted image 20250518134148.png",
     "Pasted image 20250518134128.png",
     "Pasted image 20250518134108.png",
-    "Pasted image 20250503214616.png",
     "Pasted image 20250503214426.png",
-    "Pasted image 20250503214409.png",
-    "Pasted image 20250503214303.png",
-    "Pasted image 20250503214223.png",
     "Git_LearnNote/Learning basic operation.md",
     "006-/最小二乘法实现uv分解补充说明.md",
     "Rucbase_lab/docs/Rucbase-Lab1[存储管理实验文档].md",
@@ -260,8 +260,6 @@
     "070_lab03/code",
     "070_lab03",
     "os/read1.md",
-    "Rucbase_lab/docs/Rucbase-Lab2[索引管理实验文档].md",
-    "Rucbase_lab/docs/Rucbase-Lab4[并发控制实验文档].md",
     "未命名.canvas",
     "未命名 1.canvas"
   ]
